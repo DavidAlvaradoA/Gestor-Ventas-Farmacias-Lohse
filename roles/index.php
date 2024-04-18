@@ -62,13 +62,6 @@
                     }  
                     ?>
                   </tbody>
-                  <tfoot>
-                  <tr>
-                    <th>Nro</th>
-                    <th>Rol</th>
-                    <th>Acciones</th>
-                  </tr>
-                  </tfoot>
                 </table>
               </div>
             </div>

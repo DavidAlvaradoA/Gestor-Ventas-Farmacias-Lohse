@@ -132,8 +132,7 @@
                         </div>      
                       <hr>
                       <div class="form-group">
-                        <a href="index.php" class="btn btn-secondary">Cancelar</a>
-                        <button type="submit" class="btn btn-primary">Registrar</button>
+                        <a href="index.php" class="btn btn-secondary">Volver</a>
                       </div>
                     </form>
                   </div>

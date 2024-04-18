@@ -64,11 +64,27 @@
                           <td><?php echo $datos_producto['codigo_producto']?></td>
                           <td><?php echo $datos_producto['categoria']?></td>
                           <td>
-                              <img src="<?php echo $URL."/public/img/productos/". $datos_producto['imagen_producto']?>" width="50px" alt="">
+                              <img src="<?php echo $URL."/public/img/productos/". $datos_producto['imagen_producto']?>" width="30px" alt="">
                           </td>
                           <td><?php echo $datos_producto['nombre_producto']?></td>
                           <td><?php echo $datos_producto['descripcion_producto']?></td>
-                          <td><?php echo $datos_producto['stock_producto']?></td>
+                          <?php
+                          $stock_actual = $datos_producto['stock_producto'];
+                          $stock_minimo = $datos_producto['stock_minimo'];
+                          $stock_maximo = $datos_producto['stock_maximo'];
+                          if($stock_actual < $stock_minimo){ ?>
+                            <td style="background-color: #FD6767"><?php echo $datos_producto['stock_producto'];?></td>
+                          <?php  
+                          }
+                          else if($stock_actual > $stock_maximo){ ?>
+                            <td style="background-color: #F4D03F"><?php echo $datos_producto['stock_producto'];?></td>
+                          <?php  
+                          } else { ?>
+                            <td style="background-color: #58D68D"><?php echo $datos_producto['stock_producto']?></td>
+                          <?php
+                          }
+                          ?>
+
                           <td><?php echo $datos_producto['precio_compra']?></td>
                           <td><?php echo $datos_producto['precio_venta']?></td>
                           <td><?php echo $datos_producto['fecha_ingreso']?></td>

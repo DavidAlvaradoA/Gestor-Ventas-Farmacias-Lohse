@@ -68,15 +68,6 @@
                     }  
                     ?>
                   </tbody>
-                  <tfoot>
-                  <tr>
-                    <th>Nro</th>
-                    <th>Nombre</th>
-                    <th>Email</th>
-                    <th>Rol</th>
-                    <th>Acciones</th>
-                  </tr>
-                  </tfoot>
                 </table>
               </div>
             </div>

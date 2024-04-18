@@ -155,7 +155,4 @@
   });
 </script>
 
-
-
-
 <?php include('layout/parte2.php');?>
