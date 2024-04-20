@@ -15,7 +15,7 @@ VALUES  (:rol, :fecha_creacion)");
             session_start();
             $_SESSION['mensaje'] = "Rol creado con Exito";
             $_SESSION['icono'] = "success";
-            header('Location: '.$URL.'/roles/');
+            header('Location: '.$URL.'/roles');
 
         } else {
             session_start();

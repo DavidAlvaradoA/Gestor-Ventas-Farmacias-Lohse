@@ -10,4 +10,4 @@ $id_usuario = $_POST['id_usuario'];
     session_start();
     $_SESSION['mensaje'] = "Usuario eliminado con Exito";
     $_SESSION['icono'] = "success";
-    header('Location: '.$URL.'/usuarios/');
+    header('Location: '.$URL.'/usuarios');

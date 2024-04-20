@@ -54,7 +54,7 @@
                         <td><?php echo $datos_rol['rol']?></td>
                         <td>
                           <div class="btn-group">
-                            <a href="update.php?id=<?php echo $id_rol;?>" type="button" class="btn btn-success"><i class="fa fa-pencil-alt"></i> Editar</a>
+                            <a href="update.php?id=<?php echo $id_rol;?>" type="button" class="btn btn-success btn-sm"><i class="fa fa-pencil-alt"></i> Editar</a>
                           </div>
                         </td>
                       </tr>
