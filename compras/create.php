@@ -542,7 +542,7 @@ include ('../App/controllers/compras/listado_Compras.php');
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="">Usuario:</label>
-                                    <input type="text" value="<?php echo $nombres_sesion; ?>" class="form-control"
+                                    <input type="text" value="<?php echo $nombres_sesion, ' ' ,$apellidos_sesion?>" class="form-control"
                                         disabled>
                                 </div>
                             </div>
