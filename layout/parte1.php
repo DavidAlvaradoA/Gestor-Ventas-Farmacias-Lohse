@@ -100,7 +100,7 @@
               class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-            <a href="#" class="d-block"><?php echo $nombres_sesion ?></a>
+            <a href="#" class="d-block"><?php echo $nombres_sesion ?> <?php echo $apellidos_sesion;?></a>
           </div>
         </div>
 
@@ -162,25 +162,6 @@
               </ul>
             </li>
 
-
-            <li class="nav-item">
-              <a href="#" class="nav-link active">
-                <i class="nav-icon fas fa-tags"></i>
-                <p>
-                  Categorias
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="<?php echo $URL; ?>/categorias" class="nav-link">
-                    <i class="nav-icon fas fa-list-ul"></i>
-                    <p>Listado de Categorias</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-
             <li class="nav-item">
               <a href="#" class="nav-link active">
                 <i class="nav-icon fas fa-clipboard"></i>
@@ -190,6 +171,13 @@
                 </p>
               </a>
               <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="<?php echo $URL; ?>/categorias" class="nav-link">
+                    <i class="nav-icon fas fa-list-ul"></i>
+                    <p>Listado de Categorías</p>
+                  </a>
+                </li>
+                
                 <li class="nav-item">
                   <a href="<?php echo $URL; ?>/inventario/create.php" class="nav-link">
                     <i class="nav-icon fas fa-plus"></i>
@@ -202,10 +190,18 @@
                     <p>Listado de Productos</p>
                   </a>
                 </li>
+                
                 <li class="nav-item">
                   <a href="<?php echo $URL; ?>/marcas" class="nav-link">
                     <i class="nav-icon fas fa-list-ul"></i>
                     <p>Marcas</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="<?php echo $URL; ?>/laboratorios" class="nav-link">
+                    <i class="nav-icon fas fa-list-ul"></i>
+                    <p>Laboratorios</p>
                   </a>
                 </li>
               </ul>
@@ -215,7 +211,7 @@
               <a href="#" class="nav-link active">
                 <i class="nav-icon fas fa-cart-plus"></i>
                 <p>
-                  Compras
+                  Administración
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
@@ -232,18 +228,6 @@
                     <p>Listado de compras</p>
                   </a>
                 </li>
-              </ul>
-            </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link active">
-                <i class="nav-icon fas fa-car"></i>
-                <p>
-                  Proveedores
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="<?php echo $URL; ?>/proveedores" class="nav-link">
                     <i class="nav-icon fas fa-list-ul"></i>
@@ -252,7 +236,6 @@
                 </li>
               </ul>
             </li>
-
 
             <li class="nav-item">
               <a href="<?php echo $URL; ?>/App/controllers/login/cerrarSesion.php" class="nav-link"

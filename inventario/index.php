@@ -43,14 +43,15 @@
                       <th>Nro</th>
                       <th>Código</th>
                       <th>Categoría</th>
-                      <th>Imagen</th>
                       <th>Nombre</th>
-                      <th>Descripción</th>
+                      <th>Laboratorio</th>
+                      <th>Marca</th>
+                      <th>Principio Activo</th>
+                      <th>Concentración</th>
+                      <th>Forma Farmacéutica</th>
+                      <th>Bioequivalente</th>
+                      <th>Petitorio</th>
                       <th>Stock</th>
-                      <th>Precio compra</th>
-                      <th>Precio Venta</th>
-                      <th>Fecha compra</th>
-                      <th>Ingresado</th>
                       <th>Acciones</th>
                     </tr>
                     </thead>
@@ -63,11 +64,14 @@
                           <td><?php echo $contador = $contador + 1?></td>
                           <td><?php echo $datos_producto['codigo_producto']?></td>
                           <td><?php echo $datos_producto['categoria']?></td>
-                          <td>
-                              <img src="<?php echo $URL."/public/img/productos/". $datos_producto['imagen_producto']?>" width="30px" alt="">
-                          </td>
                           <td><?php echo $datos_producto['nombre_producto']?></td>
-                          <td><?php echo $datos_producto['descripcion_producto']?></td>
+                          <td><?php echo $datos_producto['nombre_laboratorio']?></td>
+                          <td><?php echo $datos_producto['nombre_marca']?></td>
+                          <td><?php echo $datos_producto['principio_activo']?></td>
+                          <td><?php echo $datos_producto['concentracion']?></td>
+                          <td><?php echo $datos_producto['forma_farmaceutica']?></td>
+                          <td><?php echo $datos_producto['bioequivalente']?></td>
+                          <td><?php echo $datos_producto['petitorio']?></td>
                           <?php
                           $stock_actual = $datos_producto['stock_producto'];
                           $stock_minimo = $datos_producto['stock_minimo'];
@@ -84,11 +88,6 @@
                           <?php
                           }
                           ?>
-
-                          <td><?php echo $datos_producto['precio_compra']?></td>
-                          <td><?php echo $datos_producto['precio_venta']?></td>
-                          <td><?php echo $datos_producto['fecha_ingreso']?></td>
-                          <td><?php echo $datos_producto['nombre_usuario']?></td>
                           <td>
                           <div class="btn-group">
                               <a href="show.php?id=<?php echo $id_producto;?>" type="button" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> Ver</a>

@@ -149,7 +149,7 @@
   Swal.fire({
     position: "top-center",
     icon: "success",
-    title: "Bienvenido al sistema <br> <?php echo $nombres_sesion;?>",
+    title: "Bienvenido al sistema <br> <?php echo $nombres_sesion;?> <?php echo $apellidos_sesion;?>",
     showConfirmButton: false,
     timer: 1500
   });

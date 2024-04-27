@@ -2,7 +2,7 @@
 
 include('../../config.php');
 
-$nombre_marca = $_POST['nombre_marca'];
+$nombre_marca = $_GET['nombre_marca'];
 
         $sentencia = $pdo->prepare("INSERT INTO marca
         ( nombre_marca, fecha_creacion)
@@ -15,13 +15,19 @@ VALUES  (:nombre_marca, :fecha_creacion)");
             session_start();
             $_SESSION['mensaje'] = "Marca creada con Exito";
             $_SESSION['icono'] = "success";
-            header('Location: '.$URL.'/marcas');
-
+            ?>
+            <script>
+                location.href ="<?php echo $URL;?>/marcas";
+            </script>
+            <?php
         } else {
             session_start();
-            $_SESSION['mensaje'] = "Error al registrar la marca";
+            $_SESSION['mensaje'] = "Error al registrar Marca";
             $_SESSION['icono'] = "error";
-            header('Location: '.$URL.'/marcas/index.php');
+            ?>
+            <script>
+                location.href ="<?php echo $URL;?>/marcas";
+            </script>
+            <?php
         }
-
-
+        

@@ -66,7 +66,7 @@
                             <div class="modal fade" id="modal-update<?php echo $id_categoria;?>">
                               <div class="modal-dialog">
                                 <div class="modal-content">
-                                  <div class="modal-header">
+                                  <div class="modal-header" style="background-color: #239B56  ;color: white">
                                     <h4 class="modal-title">Actualizar Categoría</h4>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                       <span aria-hidden="true">&times;</span>
@@ -74,7 +74,7 @@
                                   </div>
                                   <div class="modal-body">
                                     <div class="row">
-                                      <div class="col-md-6">
+                                      <div class="col-md-12">
                                         <div class="form-group">
                                           <label for="">Nombre Categoría <b style="color: red">*</b></label>
                                           <input type="text" id="nombre_categoria<?php echo $id_categoria;?>" value="<?php echo $nombre_categoria; ?>" class="form-control">
