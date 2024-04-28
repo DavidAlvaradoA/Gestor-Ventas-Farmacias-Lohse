@@ -21,6 +21,6 @@
 
 }
   } else {
-    header('Location: '.$URL.'/login');
+    header('Location: '.$URL.'/views/login');
   }
 ?>
