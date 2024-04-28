@@ -41,14 +41,14 @@ include ('../App/controllers/laboratorios/listado_laboratorios.php');
             <div class="card-body" style="display: block;">
               <div class="row">
                 <div class="col-md-12">
-                  <form action="../App/controllers/inventario/create.php" method="post" enctype="multipart/form-data">
-
+                  <form action="../App/controllers/inventario/create.php" name="form" method="post"
+                    enctype="multipart/form-data">
                     <div class="row">
                       <div class="col-md-9">
                         <div class="row">
                           <div class="col-md-4">
                             <div class="form-group">
-                              <label for="">Codigo:</label>
+                              <label for="">Código:</label>
                               <?php
                               function ceros($numero)
                               {
@@ -279,7 +279,7 @@ include ('../App/controllers/laboratorios/listado_laboratorios.php');
                           </div>
                           <div class="col-md-3">
                             <div class="form-group">
-                              <label for="">Forma Farmaceutica:</label>
+                              <label for="">Forma Farmacéutica:</label>
                               <select name="forma_farmaceutica" class="form-control">
                                 <option value="Forma 1">Forma 1</option>
                                 <option value="Forma 2">Forma 2</option>
@@ -364,11 +364,28 @@ include ('../App/controllers/laboratorios/listado_laboratorios.php');
                         <div class="row">
                           <div class="col-md-3">
                             <div class="form-group">
-                              <label for="">Cantidad:</label>
-                              <input type="number" name="cantidad" class="form-control" placeholder="Ingrese Cantidad"
+                              <label for="">Cantidad Unitaria:</label>
+                              <input type="number" name="cantidad" class="form-control" placeholder="Ingrese cantidad"
                                 required>
                             </div>
                           </div>
+                          <script>
+                            document.addEventListener("DOMContentLoaded", function () {
+                              var cantidadInput = document.getElementsByName("cantidad")[0];
+                              var precioVentaInput = document.getElementsByName("precio_venta")[0];
+                              var unidadMedida = document.getElementsByName("unidad_medida")[0];
+
+                              cantidadInput.addEventListener("keyup", function () {
+                                var precioVenta = parseFloat(precioVentaInput.value);
+                                var cantidad = parseFloat(cantidadInput.value);
+
+                                if (!isNaN(precioVenta) && !isNaN(cantidad) && cantidad !== 0) {
+                                  var unidadMedidaCalculo = Math.round(precioVenta / cantidad);
+                                  unidadMedida.value = unidadMedidaCalculo;
+                                }
+                              });
+                            });
+                          </script>
                           <div class="col-md-3">
                             <div class="form-group">
                               <label for="">N°lote:</label>
@@ -383,17 +400,15 @@ include ('../App/controllers/laboratorios/listado_laboratorios.php');
                                 placeholder="Ingrese Fecha de vencimiento" required>
                             </div>
                           </div>
-
                           <div class="col-md-3">
                             <div class="form-group">
                               <label for="">Unidad de medida:</label>
-                              <input type="number" name="unidad_medida" class="form-control"
-                                placeholder="Campo Automatico">
+                              <input type="number" name="unidad_medida" class="form-control campo-moneda"
+                                placeholder="Campo automático" readonly>
                             </div>
                           </div>
                         </div>
                       </div>
-
                       <div class="col-md-3">
                         <div class="form-group">
                           <label for="">Imagen del Producto:</label>
@@ -441,9 +456,6 @@ include ('../App/controllers/laboratorios/listado_laboratorios.php');
   <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
-
-
-
 
 
 <!-- Control Sidebar -->

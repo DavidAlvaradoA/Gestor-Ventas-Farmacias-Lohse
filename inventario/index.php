@@ -89,10 +89,10 @@
                           }
                           ?>
                           <td>
-                          <div class="btn-group">
-                              <a href="show.php?id=<?php echo $id_producto;?>" type="button" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> Ver</a>
-                              <a href="update.php?id=<?php echo $id_producto;?>" type="button" class="btn btn-success btn-sm"><i class="fa fa-pencil-alt"></i> Editar</a>
-                              <a href="delete.php?id=<?php echo $id_producto;?>" type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Borrar</a>
+                          <div class="btn-group btn-group-sm">
+                              <a href="show.php?id=<?php echo $id_producto;?>" type="button" class="btn btn-info"><i class="fa fa-eye"></i> Ver</a>
+                              <a href="update.php?id=<?php echo $id_producto;?>" type="button" class="btn btn-success"><i class="fa fa-pencil-alt"></i> Editar</a>
+                              <a href="delete.php?id=<?php echo $id_producto;?>" type="button" class="btn btn-danger"><i class="fa fa-trash"></i> Borrar</a>
                             </div>
                           </td>
                         </tr>
