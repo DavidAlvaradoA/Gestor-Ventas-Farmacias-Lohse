@@ -17,7 +17,7 @@ VALUES  (:nombre_marca, :fecha_creacion)");
             $_SESSION['icono'] = "success";
             ?>
             <script>
-                location.href ="<?php echo $URL;?>/marcas";
+                location.href ="<?php echo $URL;?>/views/marcas";
             </script>
             <?php
         } else {
@@ -26,7 +26,7 @@ VALUES  (:nombre_marca, :fecha_creacion)");
             $_SESSION['icono'] = "error";
             ?>
             <script>
-                location.href ="<?php echo $URL;?>/marcas";
+                location.href ="<?php echo $URL;?>/views/marcas";
             </script>
             <?php
         }

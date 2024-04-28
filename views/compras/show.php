@@ -1,10 +1,10 @@
 <?php
-include ('../App/config.php');
-include ('../layout/sesion.php');
-include ('../layout/parte1.php');
-include ('../App/controllers/inventario/listado_productos.php');
-include ('../App/controllers/proveedores/listado_proveedores.php');
-include ('../App/controllers/compras/cargar_Compra.php');
+include ('../../App/config.php');
+include ('../../layout/sesion.php');
+include ('../../layout/parte1.php');
+include ('../../App/controllers/inventario/listado_productos.php');
+include ('../../App/controllers/proveedores/listado_proveedores.php');
+include ('../../App/controllers/compras/cargar_Compra.php');
 
 ?>
 
@@ -291,6 +291,6 @@ include ('../App/controllers/compras/cargar_Compra.php');
 <!-- /.control-sidebar -->
 
 
-<?php include ('../layout/parte2.php'); ?>
-<?php include ('../layout/mensajes.php'); ?>
+<?php include ('../../layout/parte2.php'); ?>
+<?php include ('../../layout/mensajes.php'); ?>
 

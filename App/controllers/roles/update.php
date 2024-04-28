@@ -16,12 +16,12 @@ $rol = $_POST['rol'];
         session_start();
         $_SESSION['mensaje'] = "Rol actualizado con Exito";
         $_SESSION['icono'] = "success";
-        header('Location: '.$URL.'/roles/');
+        header('Location: '.$URL.'/views/roles/');
     } else{
         session_start();
         $_SESSION['mensaje'] = "Error al actualizar rol";
         $_SESSION['icono'] = "error";
-        header('Location: '.$URL.'/roles/update.php?id='.$id_rol);
+        header('Location: '.$URL.'/views/roles/update.php?id='.$id_rol);
     }
 
 

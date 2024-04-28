@@ -90,12 +90,12 @@ if($_FILES['imagen_producto']['name'] != null){
         session_start();
         $_SESSION['mensaje'] = "Producto actualizado con Exito";
         $_SESSION['icono'] = "success";
-        header('Location: '.$URL.'/inventario');
+        header('Location: '.$URL.'/views/inventario');
     } else{
         session_start();
         $_SESSION['mensaje'] = "Error al actualizar Producto";
         $_SESSION['icono'] = "error";
-        header('Location: '.$URL.'/inventario/update.php?id='.$id_producto);
+        header('Location: '.$URL.'/views/inventario/update.php?id='.$id_producto);
     }
 
 

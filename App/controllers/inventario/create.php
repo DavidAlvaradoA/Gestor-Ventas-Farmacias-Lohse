@@ -111,12 +111,12 @@ VALUES (:codigo_producto,
         session_start();
         $_SESSION['mensaje'] = "Producto Registrado con Exito";
         $_SESSION['icono'] = "success";
-        header('Location: '.$URL.'/inventario');
+        header('Location: '.$URL.'/views/inventario');
 
     } else {
          session_start();
         $_SESSION['mensaje'] = "Error al registrar Producto";
         $_SESSION['icono'] = "error";
-        header('Location: '.$URL.'/inventario/create.php');
+        header('Location: '.$URL.'/views/inventario/create.php');
     }
 

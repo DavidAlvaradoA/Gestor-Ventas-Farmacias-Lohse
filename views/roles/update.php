@@ -1,7 +1,9 @@
 <?php
-  include('../App/config.php');
-  include('../layout/sesion.php');
-  include('../layout/parte1.php');
+  include('../../App/config.php');
+  include('../../layout/sesion.php');
+  include('../../layout/parte1.php');
+
+  include('../../App/controllers/roles/update_roles.php');
 
 ?>
 
@@ -12,7 +14,7 @@
       <div class="container-fluid" style="text-align: center;" style="display: flex;">
         <div class="row mb-2">
           <div class="col-sm-12">
-            <h1 class="m-0">Registrar nuevo Rol </h1>
+            <h1 class="m-0">Editar Rol </h1>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -20,15 +22,15 @@
     <!-- /.content-header -->
 
 
- 
+
     <!-- Main content -->
     <div class="content">
       <div clas="container-fluid" >
         <div class="row" style="justify-content: center; align-items: center;">
           <div class="col-md-5">
-          <div class="card card-primary">
+          <div class="card card-success">
               <div class="card-header">
-                <h3 class="card-title"> Creación de Roles</h3>
+                <h3 class="card-title"> Edición de Roles</h3>
                   <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
                     </button>
@@ -37,16 +39,17 @@
               <div class="card-body">
                 <div class="row">
                   <div class="col-md-12">
-                    <form  action="../App/controllers/roles/create.php" method="post">
+                    <form  action="../../App/controllers/roles/update.php" method="post">
                       <div class="form-group">
-                      <label for="">Nombre de Rol</label>
-                      <input type="text" name="rol"class="form-control" placeholder="Ingrese nombre del Rol..." required>
+                      <input type="text" name="id_rol" value="<?php echo $id_rol_get;?>" hidden>
+                      <label for="">Nombre del Rol</label>
+                      <input type="text" name="rol" class="form-control" value="<?php echo $rol;?>" placeholder="Ingrese nombre del Rol..." required>
                       </div>
                       
                       <hr>
                       <div class="form-group">
                         <a href="index.php" class="btn btn-secondary">Cancelar</a>
-                        <button type="submit" class="btn btn-primary">Registrar</button>
+                        <button type="submit" class="btn btn-success">Actualizar</button>
                       </div>
                     </form>
                   </div>
@@ -75,6 +78,5 @@
   </aside>
   <!-- /.control-sidebar -->
 
-
-<?php include('../layout/parte2.php');?>
-<?php include('../layout/mensajes.php');?>
+<?php include('../../layout/parte2.php');?>
+<?php include('../../layout/mensajes.php');?>

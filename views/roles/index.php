@@ -1,8 +1,8 @@
 <?php
-  include('../App/config.php');
-  include('../layout/sesion.php');
-  include('../layout/parte1.php');
-  include ('../App/controllers/roles/listado_roles.php');
+  include('../../App/config.php');
+  include('../../layout/sesion.php');
+  include('../../layout/parte1.php');
+  include ('../../App/controllers/roles/listado_roles.php');
 
 ?>
 
@@ -88,8 +88,8 @@
   <!-- /.control-sidebar -->
 
 
-<?php include('../layout/parte2.php');?>
-<?php include('../layout/mensajes.php');?>
+<?php include('../../layout/parte2.php');?>
+<?php include('../../layout/mensajes.php');?>
 
 <script>
   $(function () {

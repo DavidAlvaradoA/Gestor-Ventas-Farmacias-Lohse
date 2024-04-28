@@ -13,7 +13,7 @@ $id_proveedor = $_GET['id_proveedor'];
         $_SESSION['icono'] = "success";
         ?>
         <script>
-            location.href ="<?php echo $URL;?>/proveedores";
+            location.href ="<?php echo $URL;?>/views/proveedores";
         </script>
         <?php
     } else {
@@ -22,7 +22,7 @@ $id_proveedor = $_GET['id_proveedor'];
         $_SESSION['icono'] = "error";
         ?>
         <script>
-            location.href ="<?php echo $URL;?>/proveedores";
+            location.href ="<?php echo $URL;?>/views/proveedores";
         </script>
         <?php
     }

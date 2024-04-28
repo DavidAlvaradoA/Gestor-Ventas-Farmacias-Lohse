@@ -1,8 +1,8 @@
 <?php
-  include('../App/config.php');
-  include('../layout/sesion.php');
-  include('../layout/parte1.php');
-  include ('../App/controllers/categorias/listado_categorias.php');
+  include('../../App/config.php');
+  include('../../layout/sesion.php');
+  include('../../layout/parte1.php');
+  include ('../../App/controllers/categorias/listado_categorias.php');
 
 ?>
 
@@ -104,7 +104,7 @@
                                   $('#nombre_categoria<?php echo $id_categoria;?>').focus();
                                   $('#lbl_update<?php echo $id_categoria;?>').css('display','block');
                                 } else{
-                                  var url = "../App/controllers/categorias/update_categorias.php";
+                                  var url = "../../App/controllers/categorias/update_categorias.php";
 
                                   $.get(url, {nombre_categoria:nombre_categoria,id_categoria:id_categoria},function (datos) {
                                   $('#respuesta_update<?php echo $id_categoria;?>').html(datos);
@@ -144,8 +144,8 @@
   </aside>
   <!-- /.control-sidebar -->
 
-<?php include('../layout/mensajes.php');?>
-<?php include('../layout/parte2.php');?>
+<?php include('../../layout/mensajes.php');?>
+<?php include('../../layout/parte2.php');?>
 
 <script>
   $(function () {
@@ -228,7 +228,7 @@
       $('#nombre_categoria').focus();
       $('#lbl_create').css('display','block');
     } else {
-      var url = "../App/controllers/categorias/registro_categorias.php";
+      var url = "../../App/controllers/categorias/registro_categorias.php";
     
     $.get(url, {nombre_categoria:nombre_categoria},function (datos) {
       $('#respuesta').html(datos);

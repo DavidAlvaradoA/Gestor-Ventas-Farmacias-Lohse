@@ -132,28 +132,28 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="<?php echo $URL; ?>/roles/create.php" class="nav-link">
+                  <a href="<?php echo $URL; ?>/views/roles/create.php" class="nav-link">
                     <i class="nav-icon fas fa-user-nurse"></i>
                     <p>Creación de Roles</p>
                   </a>
                 </li>
 
                 <li class="nav-item">
-                  <a href="<?php echo $URL; ?>/roles" class="nav-link">
+                  <a href="<?php echo $URL; ?>/views/roles" class="nav-link">
                     <i class="nav-icon fas fa-list-ul"></i>
                     <p>Listado de Roles</p>
                   </a>
                 </li>
                 
                 <li class="nav-item">
-                  <a href="<?php echo $URL; ?>/usuarios/create.php" class="nav-link">
+                  <a href="<?php echo $URL; ?>/views/usuarios/create.php" class="nav-link">
                     <i class="nav-icon fas fa-user"></i>
                     <p>Creación de usuarios</p>
                   </a>
                 </li>
 
                 <li class="nav-item">
-                  <a href="<?php echo $URL; ?>/usuarios" class="nav-link">
+                  <a href="<?php echo $URL; ?>/views/usuarios" class="nav-link">
                     <i class="nav-icon fas fa-list-ul"></i>
                     <p>Listado de usuarios</p>
                   </a>
@@ -172,34 +172,34 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="<?php echo $URL; ?>/categorias" class="nav-link">
+                  <a href="<?php echo $URL; ?>/views/categorias" class="nav-link">
                     <i class="nav-icon fas fa-list-ul"></i>
                     <p>Listado de Categorías</p>
                   </a>
                 </li>
                 
                 <li class="nav-item">
-                  <a href="<?php echo $URL; ?>/inventario/create.php" class="nav-link">
+                  <a href="<?php echo $URL; ?>/views/inventario/create.php" class="nav-link">
                     <i class="nav-icon fas fa-plus"></i>
                     <p>Creación de Productos</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="<?php echo $URL; ?>/inventario" class="nav-link">
+                  <a href="<?php echo $URL; ?>/views/inventario" class="nav-link">
                     <i class="nav-icon fas fa-list-ul"></i>
                     <p>Listado de Productos</p>
                   </a>
                 </li>
                 
                 <li class="nav-item">
-                  <a href="<?php echo $URL; ?>/marcas" class="nav-link">
+                  <a href="<?php echo $URL; ?>/views/marcas" class="nav-link">
                     <i class="nav-icon fas fa-list-ul"></i>
                     <p>Marcas</p>
                   </a>
                 </li>
 
                 <li class="nav-item">
-                  <a href="<?php echo $URL; ?>/laboratorios" class="nav-link">
+                  <a href="<?php echo $URL; ?>/views/laboratorios" class="nav-link">
                     <i class="nav-icon fas fa-list-ul"></i>
                     <p>Laboratorios</p>
                   </a>
@@ -217,19 +217,19 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="<?php echo $URL; ?>/compras/create.php" class="nav-link">
+                  <a href="<?php echo $URL; ?>/views/compras/create.php" class="nav-link">
                     <i class="nav-icon fas fa-plus"></i>
                     <p>Creación de compras</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="<?php echo $URL; ?>/compras" class="nav-link">
+                  <a href="<?php echo $URL; ?>/views/compras" class="nav-link">
                     <i class="nav-icon fas fa-list-ul"></i>
                     <p>Listado de compras</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="<?php echo $URL; ?>/proveedores" class="nav-link">
+                  <a href="<?php echo $URL; ?>/views/proveedores" class="nav-link">
                     <i class="nav-icon fas fa-list-ul"></i>
                     <p>Listado de Proveedores</p>
                   </a>

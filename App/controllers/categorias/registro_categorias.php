@@ -18,7 +18,7 @@ $nombre_categoria = $_GET['nombre_categoria'];
         //  header('Location: '.$URL.'/Categorias/');
         ?>
         <script>
-            location.href ="<?php echo $URL;?>/categorias";
+            location.href ="<?php echo $URL;?>/views/categorias";
         </script>
         <?php
     } else {
@@ -28,7 +28,7 @@ $nombre_categoria = $_GET['nombre_categoria'];
         //  header('Location: '.$URL.'/categorias');
         ?>
         <script>
-            location.href ="<?php echo $URL;?>/categorias";
+            location.href ="<?php echo $URL;?>/views/categorias";
         </script>
         <?php
     }

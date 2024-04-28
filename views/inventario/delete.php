@@ -1,9 +1,8 @@
 <?php
-include ('../App/config.php');
-include ('../layout/sesion.php');
-include ('../layout/parte1.php');
-include ('../App/controllers/inventario/cargar_producto.php');
-
+include ('../../App/config.php');
+include ('../../layout/sesion.php');
+include ('../../layout/parte1.php');
+include ('../../App/controllers/inventario/cargar_producto.php');
 
 ?>
 
@@ -14,7 +13,7 @@ include ('../App/controllers/inventario/cargar_producto.php');
     <div class="container-fluid" style="text-align: center;" style="display: flex;">
       <div class="row mb-2">
         <div class="col-sm-12">
-          <h1 class="m-0"> Detalle Producto
+          <h1 class="m-0"> Borrar Producto
             <hr style="width: 200px">
             <h5> <b> <?php echo $nombre; ?> </b> </h5>
           </h1>
@@ -31,9 +30,9 @@ include ('../App/controllers/inventario/cargar_producto.php');
     <div clas="container-fluid">
       <div class="row" style="justify-content: center; align-items: center;">
         <div class="col-md-10">
-          <div class="card card-primary">
+          <div class="card card-danger">
             <div class="card-header">
-              <h3 class="card-title"> Registro de Productos</h3>
+              <h3 class="card-title"> ¿Estas seguro de eliminar el Producto?</h3>
               <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
                 </button>
@@ -42,7 +41,9 @@ include ('../App/controllers/inventario/cargar_producto.php');
             <div class="card-body" style="display: block;">
               <div class="row">
                 <div class="col-md-12">
-                  <form enctype="multipart/form-data">
+                  <form action="../../App/controllers/inventario/delete.php" name="form" method="post"
+                    enctype="multipart/form-data">
+                    <input type="text" value="<?php echo $id_producto_get; ?>" name="id_producto" hidden>
                     <div class="row">
                       <div class="col-md-9">
                         <div class="row">
@@ -68,6 +69,7 @@ include ('../App/controllers/inventario/cargar_producto.php');
                                 <input type="text" value="<?php echo $nombre_marca; ?>" class="form-control" disabled>
                               </div>
                             </div>
+                            <input type="text" name="id_usuario" value="<?php echo $id_usuario_sesion; ?>" hidden>
                           </div>
                         </div>
 
@@ -78,20 +80,20 @@ include ('../App/controllers/inventario/cargar_producto.php');
                               <input type="text" name="nombre_producto" class="form-control"
                                 value="<?php echo $nombre; ?>" disabled>
                             </div>
-
                           </div>
                           <div class="col-md-4">
                             <div class="form-group">
                               <label for="">Laboratorio:</label>
-                              <input type="text" name="laboratorio" class="form-control"
-                                value="<?php echo $nombre_laboratorio; ?>" disabled>
+                              <div style="display: flex">
+                                <input type="text" value="<?php echo $nombre_laboratorio; ?>" class="form-control"
+                                  disabled>
+                              </div>
                             </div>
                           </div>
                           <div class="col-md-4">
                             <div class="form-group">
                               <label for="">Principio Activo:</label>
-                              <input type="text" name="principio_activo" class="form-control"
-                                value="<?php echo $principio_activo; ?>" disabled>
+                              <input type="text" value="<?php echo $principio_activo; ?>" class="form-control" disabled>
                             </div>
                           </div>
                         </div>
@@ -100,29 +102,25 @@ include ('../App/controllers/inventario/cargar_producto.php');
                           <div class="col-md-3">
                             <div class="form-group">
                               <label for="">Concentración:</label>
-                              <input type="text" name="concentracion" class="form-control"
-                                value="<?php echo $concentracion; ?>" disabled>
+                              <input type="text" value="<?php echo $concentracion; ?>" class="form-control" disabled>
                             </div>
                           </div>
                           <div class="col-md-3">
                             <div class="form-group">
-                              <label for="">Forma Farmaceutica:</label>
-                              <input type="text" name="forma_farmaceutica" class="form-control"
-                                value="<?php echo $forma_farmaceutica; ?>" disabled>
+                              <label for="">Forma Farmacéutica:</label>
+                              <input type="text" value="<?php echo $forma_farmaceutica; ?>" class="form-control" disabled>
                             </div>
                           </div>
                           <div class="col-md-3">
                             <div class="form-group">
                               <label for="">Bioequivalente:</label>
-                              <input type="text" name="bioequivalente" class="form-control"
-                                value="<?php echo $bioequivalente; ?>" disabled>
+                              <input type="text" value="<?php echo $bioequivalente; ?>" class="form-control" disabled>
                             </div>
                           </div>
                           <div class="col-md-3">
                             <div class="form-group">
                               <label for="">Petitorio:</label>
-                              <input type="text" name="petitorio" class="form-control"
-                                value="<?php echo $petitorio; ?>" disabled>
+                              <input type="text" value="<?php echo $petitorio; ?>" class="form-control" disabled>
                             </div>
                           </div>
                         </div>
@@ -170,42 +168,41 @@ include ('../App/controllers/inventario/cargar_producto.php');
                         <div class="row">
                           <div class="col-md-3">
                             <div class="form-group">
-                              <label for="">Cantidad:</label>
-                              <input type="number" name="cantidad" class="form-control" value="<?php echo $cantidad;?>" disabled>
+                              <label for="">Cantidad Unitaria:</label>
+                              <input type="date" name="cantidad_unitaria" class="form-control" value="<?php echo $cantidad;?>" disabled>
                             </div>
                           </div>
                           <div class="col-md-3">
                             <div class="form-group">
                               <label for="">N°lote:</label>
-                              <input type="number" name="lote" class="form-control" value="<?php echo $lote;?>" disabled>
+                              <input type="text" name="lote" class="form-control" value="<?php echo $lote; ?>" disabled>
                             </div>
                           </div>
                           <div class="col-md-3">
                             <div class="form-group">
                               <label for="">Fecha de vencimiento:</label>
-                              <input type="date" name="fecha_vencimiento" class="form-control" value="<?php echo $fecha_vencimiento;?>" disabled>
+                              <input type="date" name="fecha_vencimiento" class="form-control" value="<?php echo $fecha_vencimiento; ?>" disabled>
                             </div>
                           </div>
-
                           <div class="col-md-3">
                             <div class="form-group">
                               <label for="">Unidad de medida:</label>
-                              <input type="number" name="unidad_medida" class="form-control" value="<?php echo $unidad_medida;?>" disabled>
+                              <input type="number" name="unidad_medida" class="form-control campo-moneda"  value="<?php echo $unidad_medida; ?>" readonly>
                             </div>
                           </div>
                         </div>
                       </div>
-
                       <div class="col-md-3">
-                      <div class="form-group">
-                        <label for="">Imagen del Producto:</label>       
-                        <img src="<?php echo $URL."/public/img/productos/".$imagen;?>" width="100%" alt="">
+                        <div class="form-group">
+                          <label for="">Imagen del Producto:</label>
+                          <img src="<?php echo $URL."/public/img/productos/".$imagen;?>" width="100%" alt="">
                         </div>
                       </div>
                     </div>
                     <hr>
                     <div class="form-group">
-                      <a href="index.php" class="btn btn-secondary">Volver</a>
+                      <a href="index.php" class="btn btn-secondary">Cancelar</a>
+                      <button class="btn btn-danger"><i class="fa fa-trash"></i> Eliminar</button>
                     </div>
                   </form>
                 </div>
@@ -221,9 +218,6 @@ include ('../App/controllers/inventario/cargar_producto.php');
 <!-- /.content-wrapper -->
 
 
-
-
-
 <!-- Control Sidebar -->
 <aside class="control-sidebar control-sidebar-dark">
   <!-- Control sidebar content goes here -->
@@ -235,5 +229,5 @@ include ('../App/controllers/inventario/cargar_producto.php');
 <!-- /.control-sidebar -->
 
 
-<?php include ('../layout/parte2.php'); ?>
-<?php include ('../layout/mensajes.php'); ?>
+<?php include ('../../layout/parte2.php'); ?>
+<?php include ('../../layout/mensajes.php'); ?>

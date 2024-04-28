@@ -65,7 +65,7 @@ if($sentencia->execute()) {
     $_SESSION['icono'] = "success";
     ?>
     <script>
-        location.href ="<?php echo $URL;?>/compras";
+        location.href ="<?php echo $URL;?>/views/compras";
     </script>
     <?php
 } else {
@@ -77,7 +77,7 @@ if($sentencia->execute()) {
     $_SESSION['icono'] = "error";
     ?>
     <script>
-        location.href ="<?php echo $URL;?>/compras";
+        location.href ="<?php echo $URL;?>/views/compras";
     </script>
     <?php
 }

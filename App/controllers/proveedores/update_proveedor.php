@@ -31,20 +31,18 @@ $id_proveedor = $_GET['id_proveedor'];
         session_start();
         $_SESSION['mensaje'] = "Proveedor actualizado con Exito";
         $_SESSION['icono'] = "success";
-        //header('Location: '.$URL.'/roles/');
         ?>
         <script>
-            location.href ="<?php echo $URL;?>/proveedores";
+            location.href ="<?php echo $URL;?>/views/proveedores";
         </script>
         <?php
     } else{
         session_start();
         $_SESSION['mensaje'] = "Error al actualizar Proveedor";
         $_SESSION['icono'] = "error";
-        //header('Location: '.$URL.'/roles/update.php?id='.$id_rol);
         ?>
         <script>
-        location.href ="<?php echo $URL;?>/proveedores";
+        location.href ="<?php echo $URL;?>/views/proveedores";
         </script>
         <?php
     }

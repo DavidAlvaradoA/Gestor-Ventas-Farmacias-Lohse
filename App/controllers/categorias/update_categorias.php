@@ -16,20 +16,18 @@ $id_categoria = $_GET['id_categoria'];
         session_start();
         $_SESSION['mensaje'] = "Categoría actualizada con Exito";
         $_SESSION['icono'] = "success";
-        //header('Location: '.$URL.'/roles/');
         ?>
         <script>
-            location.href ="<?php echo $URL;?>/categorias";
+            location.href ="<?php echo $URL;?>/views/categorias";
         </script>
         <?php
     } else{
         session_start();
         $_SESSION['mensaje'] = "Error al actualizar Categoría";
         $_SESSION['icono'] = "error";
-        //header('Location: '.$URL.'/roles/update.php?id='.$id_rol);
         ?>
         <script>
-        location.href ="<?php echo $URL;?>/categorias";
+        location.href ="<?php echo $URL;?>/views/categorias";
         </script>
         <?php
     }

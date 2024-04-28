@@ -1,8 +1,8 @@
 <?php
-include ('../App/config.php');
-include ('../layout/sesion.php');
-include ('../layout/parte1.php');
-include ('../App/controllers/laboratorios/listado_laboratorios.php');
+include ('../../App/config.php');
+include ('../../layout/sesion.php');
+include ('../../layout/parte1.php');
+include ('../../App/controllers/marcas/listado_marcas.php');
 
 ?>
 
@@ -13,10 +13,10 @@ include ('../App/controllers/laboratorios/listado_laboratorios.php');
     <div class="container-fluid" style="text-align: center;" style="display: flex;">
       <div class="row mb-2">
         <div class="col-sm-12">
-          <h1 class="m-0">Listado de Laboratorios </h1>
+          <h1 class="m-0">Listado de Marcas </h1>
           <br>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-create-laboratorio">
-            <i class="fa fa-plus"></i> Nuevo Laboratorio
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-create">
+            <i class="fa fa-plus"></i> Nueva Marca
           </button>
         </div><!-- /.col -->
       </div><!-- /.row -->
@@ -33,7 +33,7 @@ include ('../App/controllers/laboratorios/listado_laboratorios.php');
         <div class="col-md-6">
           <div class="card card-secondary">
             <div class="card-header">
-              <h3 class="card-title">Laboratorios</h3>
+              <h3 class="card-title">Marcas</h3>
               <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
                 </button>
@@ -44,38 +44,38 @@ include ('../App/controllers/laboratorios/listado_laboratorios.php');
                 <thead>
                   <tr>
                     <th>Nro</th>
-                    <th>Nombre Laboratorio</th>
+                    <th>Nombre Marca</th>
                     <th>Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php
                   $contador = 0;
-                  foreach ($datos_laboratorios as $datos_laboratorio) {
-                    $id_laboratorio = $datos_laboratorio['id_laboratorio'];
-                    $nombre_laboratorio = $datos_laboratorio['nombre_laboratorio'];
+                  foreach ($datos_marcas as $datos_marca) {
+                    $id_marca = $datos_marca['id_marca'];
+                    $nombre_marca = $datos_marca['nombre_marca'];
                     ?>
                     <tr>
                       <td><?php echo $contador = $contador + 1 ?></td>
-                      <td><?php echo $datos_laboratorio['nombre_laboratorio'] ?></td>
+                      <td><?php echo $datos_marca['nombre_marca'] ?></td>
                       <td>
                         <div class="btn-group btn-group-sm">
                           <button type="button" class="btn btn-success" data-toggle="modal"
-                            data-target="#modal-update-laboratorio<?php echo $id_laboratorio; ?>">
+                            data-target="#modal-update-marca<?php echo $id_marca; ?>">
                             <i class="fa fa-pencil-alt"></i> Editar
                           </button>
                           <button type="button" class="btn btn-danger" data-toggle="modal"
-                            data-target="#modal-delete-laboratorio<?php echo $id_laboratorio; ?>">
+                            data-target="#modal-delete-marca<?php echo $id_marca; ?>">
                             <i class="fa fa-trash"></i> Borrar
                           </button>
                         </div>
 
-                        <!---- Modal para actualizar Laboratorios ---->
-                        <div class="modal fade" id="modal-update-laboratorio<?php echo $id_laboratorio; ?>">
+                        <!---- Modal para actualizar Marcas ---->
+                        <div class="modal fade" id="modal-update-marca<?php echo $id_marca; ?>">
                           <div class="modal-dialog">
                             <div class="modal-content">
                               <div class="modal-header" style="background-color: #23AF27 ;color: white">
-                                <h4 class="modal-title">Actualizar Laboratorios</h4>
+                                <h4 class="modal-title">Actualizar Marcas</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                   <span aria-hidden="true">&times;</span>
                                 </button>
@@ -84,11 +84,11 @@ include ('../App/controllers/laboratorios/listado_laboratorios.php');
                                 <div class="row">
                                   <div class="col-md-12">
                                     <div class="form-group">
-                                      <label for="">Nombre Laboratorio <b style="color: red">*</b></label>
-                                      <input type="text" id="nombre_laboratorio<?php echo $id_laboratorio; ?>"
-                                        value="<?php echo $datos_laboratorio['nombre_laboratorio']; ?>" class="form-control">
+                                      <label for="">Nombre Marca <b style="color: red">*</b></label>
+                                      <input type="text" id="nombre_marca<?php echo $id_marca; ?>"
+                                        value="<?php echo $datos_marca['nombre_marca']; ?>" class="form-control">
                                       <small style="color: red; display: none"
-                                        id="lbl_nombre<?php echo $id_laboratorio; ?>">* Este campo es requerido</small>
+                                        id="lbl_nombre<?php echo $id_marca; ?>">* Este campo es requerido</small>
                                     </div>
                                   </div>
                                 </div>
@@ -96,8 +96,8 @@ include ('../App/controllers/laboratorios/listado_laboratorios.php');
                               <div class="modal-footer justify-content-between">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                                 <button type="button" class="btn btn-success"
-                                  id="btn_update<?php echo $id_laboratorio; ?>">Actualizar Laboratorio</button>
-                                <div id="respuesta_update<?php echo $id_laboratorio; ?>" hidden></div>
+                                  id="btn_update<?php echo $id_marca; ?>">Actualizar Marca</button>
+                                <div id="respuesta_update<?php echo $id_marca; ?>" hidden></div>
                               </div>
                             </div>
                             <!-- /.modal-content -->
@@ -106,31 +106,31 @@ include ('../App/controllers/laboratorios/listado_laboratorios.php');
                         </div>
                         <!-- /.modal -->
                         <script>
-                          $('#btn_update<?php echo $id_laboratorio; ?>').click(function () {
+                          $('#btn_update<?php echo $id_marca; ?>').click(function () {
 
-                            var id_laboratorio = '<?php echo $id_laboratorio; ?>';
-                            var nombre_laboratorio = $('#nombre_laboratorio<?php echo $id_laboratorio; ?>').val();
+                            var id_marca = '<?php echo $id_marca; ?>';
+                            var nombre_marca = $('#nombre_marca<?php echo $id_marca; ?>').val();
                             
-                            if (nombre_laboratorio == "") {
-                              $('#nombre_laboratorio<?php echo $id_laboratorio; ?>').focus();
-                              $('#lbl_nombre<?php echo $id_laboratorio; ?>').css('display', 'block');
+                            if (nombre_marca == "") {
+                              $('#nombre_marca<?php echo $id_marca; ?>').focus();
+                              $('#lbl_nombre<?php echo $id_marca; ?>').css('display', 'block');
 
                             } else {
-                              var url = "../App/controllers/laboratorios/update.php";
+                              var url = "../../App/controllers/marcas/update.php";
 
-                              $.get(url, { nombre_laboratorio: nombre_laboratorio, id_laboratorio: id_laboratorio }, function (datos) {
-                                $('#respuesta_update<?php echo $id_laboratorio; ?>').html(datos);
+                              $.get(url, { nombre_marca: nombre_marca, id_marca: id_marca }, function (datos) {
+                                $('#respuesta_update<?php echo $id_marca; ?>').html(datos);
                               });
                             }
                           });
                         </script>
 
-                        <!---- Modal para eliminar Laboratorios ---->
-                        <div class="modal fade" id="modal-delete-laboratorio<?php echo $id_laboratorio; ?>">
+                        <!---- Modal para eliminar Marcas ---->
+                        <div class="modal fade" id="modal-delete-marca<?php echo $id_marca; ?>">
                           <div class="modal-dialog">
                             <div class="modal-content">
                               <div class="modal-header" style="background-color: #E22C32 ;color: white">
-                                <h4 class="modal-title"> ¿Esta seguro de eliminar Laboratorio?</h4>
+                                <h4 class="modal-title"> ¿Esta seguro de eliminar Marca?</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                   <span aria-hidden="true">&times;</span>
                                 </button>
@@ -139,12 +139,12 @@ include ('../App/controllers/laboratorios/listado_laboratorios.php');
                                 <div class="row">
                                   <div class="col-md-12">
                                     <div class="form-group">
-                                      <label for="">Nombre Laboratorio <b style="color: red">*</b></label>
-                                      <input type="text" id="nombre_laboratorio<?php echo $id_laboratorio; ?>"
-                                        value="<?php echo $datos_laboratorio['nombre_laboratorio']; ?>" class="form-control"
+                                      <label for="">Nombre Marca <b style="color: red">*</b></label>
+                                      <input type="text" id="nombre_marca<?php echo $id_marca; ?>"
+                                        value="<?php echo $datos_marca['nombre_marca']; ?>" class="form-control"
                                         disabled>
                                       <small style="color: red; display: none"
-                                        id="lbl_nombre<?php echo $id_laboratorio; ?>">* Este campo es requerido</small>
+                                        id="lbl_nombre<?php echo $id_marca; ?>">* Este campo es requerido</small>
                                     </div>
                                   </div>
                                 </div>
@@ -152,8 +152,8 @@ include ('../App/controllers/laboratorios/listado_laboratorios.php');
                               <div class="modal-footer justify-content-between">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                                 <button type="button" class="btn btn-danger"
-                                  id="btn_delete<?php echo $id_laboratorio; ?>">Eliminar Laboratorio</button>
-                                <div id="respuesta_delete<?php echo $id_laboratorio; ?>" hidden></div>
+                                  id="btn_delete<?php echo $id_marca; ?>">Eliminar Marca</button>
+                                <div id="respuesta_delete<?php echo $id_marca; ?>" hidden></div>
                               </div>
                             </div>
                             <!-- /.modal-content -->
@@ -162,14 +162,14 @@ include ('../App/controllers/laboratorios/listado_laboratorios.php');
                         </div>
                         <!-- /.modal -->
                         <script>
-                          $('#btn_delete<?php echo $id_laboratorio; ?>').click(function () {
+                          $('#btn_delete<?php echo $id_marca; ?>').click(function () {
 
-                            var id_laboratorio = '<?php echo $id_laboratorio; ?>';
+                            var id_marca = '<?php echo $id_marca; ?>';
 
-                            var url2 = "../App/controllers/laboratorios/delete_laboratorio.php";
+                            var url2 = "../../App/controllers/marcas/delete_marca.php";
 
-                            $.get(url2, { id_laboratorio: id_laboratorio }, function (datos) {
-                              $('#respuesta_delete<?php echo $id_laboratorio; ?>').html(datos);
+                            $.get(url2, { id_marca: id_marca }, function (datos) {
+                              $('#respuesta_delete<?php echo $id_marca; ?>').html(datos);
                             });
                           });
                         </script>
@@ -204,8 +204,8 @@ include ('../App/controllers/laboratorios/listado_laboratorios.php');
 </aside>
 <!-- /.control-sidebar -->
 
-<?php include ('../layout/mensajes.php'); ?>
-<?php include ('../layout/parte2.php'); ?>
+<?php include ('../../layout/mensajes.php'); ?>
+<?php include ('../../layout/parte2.php'); ?>
 
 <script>
   $(function () {
@@ -214,12 +214,12 @@ include ('../App/controllers/laboratorios/listado_laboratorios.php');
       "pageLength": 10,
       "language": {
         "emptyTable": "No hay información",
-        "info": "Mostrando _START_ - _END_ de _TOTAL_ Laboratorios",
-        "infoEmpty": "Mostrando 0 to 0 of 0 Laboratorios",
-        "infoFiltered": "(Filtrado de _MAX_ total Laboratorios)",
+        "info": "Mostrando _START_ - _END_ de _TOTAL_ Marcas",
+        "infoEmpty": "Mostrando 0 to 0 of 0 Marcas",
+        "infoFiltered": "(Filtrado de _MAX_ total Marcas)",
         "infoPostFix": "",
         "thousands": ",",
-        "lengthMenu": "Mostrar _MENU_ Laboratorios",
+        "lengthMenu": "Mostrar _MENU_ Marcas",
         "loadingRecords": "Cargando...",
         "processing": "Procesando...",
         "search": "Buscar:",
@@ -248,13 +248,13 @@ include ('../App/controllers/laboratorios/listado_laboratorios.php');
   });
 </script>
 
-<!---- Modal para registrar Laboratorios ---->
+<!---- Modal para registrar Marcas ---->
 
-<div class="modal fade" id="modal-create-laboratorio">
+<div class="modal fade" id="modal-create">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header" style="background-color: #1D72F5 ;color: white">
-        <h4 class="modal-title">Creación de Nuevo Laboratorio</h4>
+        <h4 class="modal-title">Creación de Nueva Marca</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -263,8 +263,8 @@ include ('../App/controllers/laboratorios/listado_laboratorios.php');
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
-              <label for="">Nombre Laboratorio <b style="color: red">*</b></label>
-              <input type="text" id="nombre_laboratorio" class="form-control">
+              <label for="">Nombre Marca <b style="color: red">*</b></label>
+              <input type="text" id="nombre_marca" class="form-control">
               <small style="color: red; display: none" id="lbl_nombre">* Este campo es requerido</small>
             </div>
           </div>
@@ -273,7 +273,7 @@ include ('../App/controllers/laboratorios/listado_laboratorios.php');
 
       <div class="modal-footer justify-content-between">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" id="btn_create">Guardar Laboratorio</button>
+        <button type="button" class="btn btn-primary" id="btn_create">Guardar Marca</button>
         <div id="respuesta" hidden></div>
       </div>
     </div>
@@ -287,18 +287,18 @@ include ('../App/controllers/laboratorios/listado_laboratorios.php');
 
 <script>
   $('#btn_create').click(function () {
-    var nombre_laboratorio = $('#nombre_laboratorio').val();
+    var nombre_marca = $('#nombre_marca').val();
 
 
-    if (nombre_laboratorio == "") {
-      $('#nombre_laboratorio').focus();
+    if (nombre_marca == "") {
+      $('#nombre_marca').focus();
       $('#lbl_nombre').css('display', 'block');
 
     } else {
-      var url = "../App/controllers/laboratorios/create_laboratorio.php";
+      var url = "../../App/controllers/marcas/create_marca.php";
 
       $.get(url, {
-        nombre_laboratorio: nombre_laboratorio,
+        nombre_marca: nombre_marca,
 
       }, function (datos) {
         $('#respuesta').html(datos);
