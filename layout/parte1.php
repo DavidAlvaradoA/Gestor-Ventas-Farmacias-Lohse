@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Gestor Ventas | Farmacia</title>
+  <link rel="icon" href="<?php echo $URL; ?>/public/img/logofarmaciatrans.png" type="image/x-icon">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -27,7 +28,6 @@
   <script src="<?php echo $URL; ?>/public/templates/AdminLTE-3.2.0/plugins/jquery/jquery.min.js"></script>
 
 </head>
-
 
 <body class="hold-transition sidebar-mini">
   <div class="wrapper">
@@ -86,8 +86,8 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
       <a href="<?php echo $URL; ?>" class="brand-link">
-        <img src="<?php echo $URL; ?>/public/img/farmacia.jpg" alt="AdminLTE Logo"
-          class="brand-image img-circle elevation-3" style="opacity: .8">
+        <img src="<?php echo $URL; ?>/public/img/logofarmaciatrans.png"
+          class="brand-image" style="opacity: .8">
         <span class="brand-text font-weight-light">Gestor Farmacia</span>
       </a>
 
