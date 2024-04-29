@@ -1,11 +1,11 @@
 <?php
-include ('../../App/config.php');
-include ('../../layout/sesion.php');
-include ('../../layout/parte1.php');
-include ('../../App/controllers/inventario/cargar_producto.php');
-include ('../../App/controllers/categorias/listado_categorias.php');
-include ('../../App/controllers/marcas/listado_marcas.php');
-include ('../../App/controllers/laboratorios/listado_laboratorios.php');
+include ('../../../App/config.php');
+include ('../../../layout/sesion.php');
+include ('../../../layout/parte1.php');
+include ('../../../App/controllers/inventario/listado_productos.php');
+include ('../../../App/controllers/categorias/listado_categorias.php');
+include ('../../../App/controllers/marcas/listado_marcas.php');
+include ('../../../App/controllers/laboratorios/listado_laboratorios.php');
 
 ?>
 
@@ -16,7 +16,7 @@ include ('../../App/controllers/laboratorios/listado_laboratorios.php');
     <div class="container-fluid" style="text-align: center;" style="display: flex;">
       <div class="row mb-2">
         <div class="col-sm-12">
-          <h1 class="m-0">Actualizar <?php echo $nombre ?></h1>
+          <h1 class="m-0">Registrar nuevo Producto </h1>
         </div><!-- /.col -->
       </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -30,9 +30,9 @@ include ('../../App/controllers/laboratorios/listado_laboratorios.php');
     <div clas="container-fluid">
       <div class="row" style="justify-content: center; align-items: center;">
         <div class="col-md-10">
-          <div class="card card-success">
+          <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title"> Actualización de Productos</h3>
+              <h3 class="card-title"> Registro de Productos</h3>
               <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
                 </button>
@@ -41,36 +41,110 @@ include ('../../App/controllers/laboratorios/listado_laboratorios.php');
             <div class="card-body" style="display: block;">
               <div class="row">
                 <div class="col-md-12">
-                  <form action="../../App/controllers/inventario/update.php" name="form" method="post"
+                  <form action="../../../App/controllers/inventario/create.php" name="form" method="post"
                     enctype="multipart/form-data">
-                    <input type="text" value="<?php echo $id_producto_get;?>" name="id_producto" hidden>
                     <div class="row">
                       <div class="col-md-9">
                         <div class="row">
                           <div class="col-md-4">
                             <div class="form-group">
                               <label for="">Código:</label>
+                              <?php
+                              function ceros($numero)
+                              {
+                                $len = 0;
+                                $cantidad_ceros = 5;
+                                $aux = $numero;
+                                $pos = strlen($numero);
+                                $len = $cantidad_ceros - $pos;
+                                for ($i = 0; $i < $len; $i++) {
+                                  $aux = "0" . $aux;
+                                }
+                                return $aux;
+                              }
+                              $contador_id_productos = 1;
+                              foreach ($datos_productos as $datos_producto) {
+                                $contador_id_productos = $contador_id_productos + 1;
+                              }
+                              ?>
                               <input type="text" class="form-control" placeholder="Ingrese Código del producto"
-                                value="<?php echo $codigo ?>" disabled>
-                              <input name="codigo_producto" type="text" value="<?php echo $codigo ?>" hidden>
+                                value="<?php echo "P-" . ceros($contador_id_productos) ?>" disabled>
+                              <input name="codigo_producto" type="text"
+                                value="<?php echo "P-" . ceros($contador_id_productos) ?>" hidden>
                             </div>
                           </div>
                           <div class="col-md-4">
                             <div class="form-group">
                               <label for="">Categoría:</label>
                               <div style="display: flex">
-                                <select name="id_categoria" id="" class="form-control" required>
+                                <select name="id_categoria" class="form-control" required>
                                   <?php
-                                  foreach ($datos_categorias as $datos_categoria) {
-                                    $nombre_categoria_tabla = $datos_categoria['nombre_categoria'];
-                                    $id_categoria = $datos_categoria['id_categoria'] ?>
-                                    <option value="<?php echo $id_categoria; ?>" <?php if ($nombre_categoria_tabla == $nombre_categoria) { ?> selected="selected" <?php } ?>>
-                                      <?php echo $nombre_categoria_tabla; ?>
+                                  foreach ($datos_categorias as $datos_categoria) { ?>
+                                    <option value="<?php echo $datos_categoria['id_categoria']; ?>">
+                                      <?php echo $datos_categoria['nombre_categoria']; ?>
                                     </option>
                                     <?php
                                   }
                                   ?>
                                 </select>
+                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                  data-target="#modal-create">
+                                  <i class="fa fa-plus"></i>
+                                </button>
+                                <!---- Modal para registrar categorias ---->
+
+                                <div class="modal fade" id="modal-create">
+                                  <div class="modal-dialog">
+                                    <div class="modal-content">
+                                      <div class="modal-header" style="background-color: #1D72F5 ;color: white">
+                                        <h4 class="modal-title">Creación de Nueva Categoría</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                      <div class="modal-body">
+                                        <div class="row">
+                                          <div class="col-md-12">
+                                            <div class="form-group">
+                                              <label for="">Nombre Categoría <b style="color: red">*</b></label>
+                                              <input type="text" id="nombre_categoria" class="form-control">
+                                              <small style="color: red; display: none" id="lbl_create">* Este campo es
+                                                requerido</small>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="modal-footer justify-content-between">
+                                        <button type="button" class="btn btn-default"
+                                          data-dismiss="modal">Cancelar</button>
+                                        <button type="button" class="btn btn-primary" id="btn_create">Guardar
+                                          Categoría</button>
+                                        <div id="respuesta" hidden></div>
+                                      </div>
+                                    </div>
+                                    <!-- /.modal-content -->
+                                  </div>
+                                  <!-- /.modal-dialog -->
+                                </div>
+                                <!-- /.modal -->
+
+                                <script>
+                                  $('#btn_create').click(function () {
+                                    var nombre_categoria = $('#nombre_categoria').val();
+
+                                    if (nombre_categoria == "") {
+                                      $('#nombre_categoria').focus();
+                                      $('#lbl_create').css('display', 'block');
+                                    } else {
+                                      var url = "../../../App/controllers/categorias/registro_categorias.php";
+
+                                      $.get(url, { nombre_categoria: nombre_categoria }, function (datos) {
+                                        $('#respuesta').html(datos);
+                                      });
+                                    }
+
+                                  });
+                                </script>
                               </div>
                             </div>
                           </div>
@@ -78,18 +152,76 @@ include ('../../App/controllers/laboratorios/listado_laboratorios.php');
                             <div class="form-group">
                               <label for="">Marca:</label>
                               <div style="display: flex">
-                                <select name="id_marca" id="" class="form-control" required>
+                                <select name="id_marca" class="form-control" required>
                                   <?php
-                                  foreach ($datos_marcas as $datos_marca) {
-                                    $nombre_marca_tabla = $datos_marca['nombre_marca'];
-                                    $id_marca = $datos_marca['id_marca'] ?>
-                                    <option value="<?php echo $id_marca; ?>" <?php if ($nombre_marca_tabla == $nombre_marca) { ?> selected="selected" <?php } ?>>
-                                      <?php echo $nombre_marca_tabla; ?>
+                                  foreach ($datos_marcas as $datos_marca) { ?>
+                                    <option value="<?php echo $datos_marca['id_marca']; ?>">
+                                      <?php echo $datos_marca['nombre_marca']; ?>
                                     </option>
                                     <?php
                                   }
                                   ?>
                                 </select>
+                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                  data-target="#modal-marca">
+                                  <i class="fa fa-plus"></i>
+                                </button>
+                                <!---- Modal para registrar Marcas ---->
+
+                                <div class="modal fade" id="modal-marca">
+                                  <div class="modal-dialog">
+                                    <div class="modal-content">
+                                      <div class="modal-header" style="background-color: #1D72F5 ;color: white">
+                                        <h4 class="modal-title">Creación de Nueva Marca</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                      <div class="modal-body">
+                                        <div class="row">
+                                          <div class="col-md-12">
+                                            <div class="form-group">
+                                              <label for="">Nombre Marca <b style="color: red">*</b></label>
+                                              <input type="text" id="nombre_marca" class="form-control">
+                                              <small style="color: red; display: none" id="lbl_create-marca">* Este
+                                                campo es
+                                                requerido</small>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="modal-footer justify-content-between">
+                                        <button type="button" class="btn btn-default"
+                                          data-dismiss="modal">Cancelar</button>
+                                        <button type="button" class="btn btn-primary" id="btn_create-marca">Guardar
+                                          Marca</button>
+                                        <div id="respuesta-marca" hidden></div>
+                                      </div>
+                                    </div>
+                                    <!-- /.modal-content -->
+                                  </div>
+                                  <!-- /.modal-dialog -->
+                                </div>
+                                <!-- /.modal -->
+
+                                <script>
+                                  $('#btn_create-marca').click(function () {
+                                    var nombre_marca = $('#nombre_marca').val();
+
+                                    if (nombre_marca == "") {
+                                      $('#nombre_marca').focus();
+                                      $('#lbl_create-marca').css('display', 'block');
+                                    } else {
+                                      var url = "../../../App/controllers/marcas/create_marca.php";
+
+                                      $.get(url, { nombre_marca: nombre_marca }, function (datos) {
+                                        $('#respuesta-marca').html(datos);
+                                      });
+                                    }
+
+                                  });
+                                </script>
+
                               </div>
                             </div>
                             <input type="text" name="id_usuario" value="<?php echo $id_usuario_sesion; ?>" hidden>
@@ -101,20 +233,18 @@ include ('../../App/controllers/laboratorios/listado_laboratorios.php');
                             <div class="form-group">
                               <label for="">Nombre:</label>
                               <input type="text" name="nombre_producto" class="form-control"
-                                value="<?php echo $nombre; ?>" required>
+                                placeholder="Ingrese Nombre del producto" required>
                             </div>
                           </div>
                           <div class="col-md-4">
                             <div class="form-group">
                               <label for="">Laboratorio:</label>
                               <div style="display: flex">
-                                <select name="id_laboratorio" id="" class="form-control" required>
+                                <select name="id_laboratorio" class="form-control" required>
                                   <?php
-                                  foreach ($datos_laboratorios as $datos_laboratorio) {
-                                    $nombre_laboratorio_tabla = $datos_laboratorio['nombre_laboratorio'];
-                                    $id_laboratorio = $datos_laboratorio['id_laboratorio'] ?>
-                                    <option value="<?php echo $id_laboratorio; ?>" <?php if ($nombre_laboratorio_tabla == $nombre_laboratorio) { ?> selected="selected" <?php } ?>>
-                                      <?php echo $nombre_laboratorio_tabla; ?>
+                                  foreach ($datos_laboratorios as $datos_laboratorio) { ?>
+                                    <option value="<?php echo $datos_laboratorio['id_laboratorio']; ?>">
+                                      <?php echo $datos_laboratorio['nombre_laboratorio']; ?>
                                     </option>
                                     <?php
                                   }
@@ -127,7 +257,7 @@ include ('../../App/controllers/laboratorios/listado_laboratorios.php');
                             <div class="form-group">
                               <label for="">Principio Activo:</label>
                               <input type="text" name="principio_activo" class="form-control"
-                                value="<?php echo $principio_activo; ?>" required>
+                                placeholder="Ingrese Principio activo" required>
                             </div>
                           </div>
                         </div>
@@ -150,8 +280,7 @@ include ('../../App/controllers/laboratorios/listado_laboratorios.php');
                           <div class="col-md-3">
                             <div class="form-group">
                               <label for="">Forma Farmacéutica:</label>
-                              <select name="forma_farmaceutica" class="form-control"
-                                value="<?php echo $forma_farmaceutica; ?>">
+                              <select name="forma_farmaceutica" class="form-control">
                                 <option value="Forma 1">Forma 1</option>
                                 <option value="Forma 2">Forma 2</option>
                               </select>
@@ -193,44 +322,41 @@ include ('../../App/controllers/laboratorios/listado_laboratorios.php');
                           <div class="col-md-2">
                             <div class="form-group">
                               <label for="">Stock:</label>
-                              <input name="stock_producto" type="number" class="form-control"
-                                value="<?php echo $stock; ?>" required>
+                              <input name="stock_producto" type="number" class="form-control" placeholder="Stock"
+                                required>
                             </div>
                           </div>
                           <div class="col-md-2">
                             <div class="form-group">
                               <label for="">Stock mínimo:</label>
-                              <input type="number" name="stock_minimo" class="form-control"
-                                value="<?php echo $stock_minimo; ?>">
+                              <input type="number" name="stock_minimo" class="form-control" placeholder="Stock mínimo">
                             </div>
                           </div>
                           <div class="col-md-2">
                             <div class="form-group">
                               <label for="">Stock máximo:</label>
-                              <input type="number" name="stock_maximo" class="form-control"
-                                value="<?php echo $stock_maximo; ?>">
+                              <input type="number" name="stock_maximo" class="form-control" placeholder="Stock máximo">
                             </div>
                           </div>
                           <div class="col-md-2">
                             <div class="form-group">
                               <label for="">Precio compra:</label>
-                              <input type="number" name="precio_compra" class="form-control"
-                                value="<?php echo $precio_compra; ?>" required>
+                              <input type="number" name="precio_compra" class="form-control" placeholder="Precio compra"
+                                required>
                             </div>
                           </div>
 
                           <div class="col-md-2">
                             <div class="form-group">
                               <label for="">Precio venta:</label>
-                              <input type="number" name="precio_venta" class="form-control"
-                                value="<?php echo $precio_venta; ?>" required>
+                              <input type="number" name="precio_venta" class="form-control" placeholder="Precio venta"
+                                required>
                             </div>
                           </div>
                           <div class="col-md-2">
                             <div class="form-group">
                               <label for="">Fecha Ingreso:</label>
-                              <input type="date" name="fecha_ingreso" class="form-control"
-                                value="<?php echo $fecha_ingreso; ?>" required>
+                              <input type="date" name="fecha_ingreso" class="form-control" required>
                             </div>
                           </div>
                         </div>
@@ -240,10 +366,9 @@ include ('../../App/controllers/laboratorios/listado_laboratorios.php');
                             <div class="form-group">
                               <label for="">Cantidad Unitaria:</label>
                               <input type="number" name="cantidad" class="form-control" placeholder="Ingrese cantidad"
-                                value="<?php echo $cantidad; ?>" required>
+                                required>
                             </div>
                           </div>
-                          
                           <script>
                             document.addEventListener("DOMContentLoaded", function () {
                               var cantidadInput = document.getElementsByName("cantidad")[0];
@@ -261,27 +386,25 @@ include ('../../App/controllers/laboratorios/listado_laboratorios.php');
                               });
                             });
                           </script>
-
                           <div class="col-md-3">
                             <div class="form-group">
                               <label for="">N°lote:</label>
                               <input type="text" name="lote" class="form-control" placeholder="Ingrese n° de lote"
-                                value="<?php echo $lote; ?>" required>
+                                required>
                             </div>
                           </div>
                           <div class="col-md-3">
                             <div class="form-group">
                               <label for="">Fecha de vencimiento:</label>
                               <input type="date" name="fecha_vencimiento" class="form-control"
-                                placeholder="Ingrese Fecha de vencimiento" value="<?php echo $fecha_vencimiento; ?>"
-                                required>
+                                placeholder="Ingrese Fecha de vencimiento" required>
                             </div>
                           </div>
                           <div class="col-md-3">
                             <div class="form-group">
                               <label for="">Unidad de medida:</label>
                               <input type="number" name="unidad_medida" class="form-control campo-moneda"
-                                placeholder="Campo automático" value="<?php echo $unidad_medida; ?>" readonly>
+                                placeholder="Campo automático" readonly>
                             </div>
                           </div>
                         </div>
@@ -290,10 +413,8 @@ include ('../../App/controllers/laboratorios/listado_laboratorios.php');
                         <div class="form-group">
                           <label for="">Imagen del Producto:</label>
                           <input type="file" name="imagen_producto" class="form-control" id="file">
-                          <input type="text" name="image_text" value="<?php echo $imagen ?>" hidden>
-                          <output id="list">
-                            <img src="<?php echo $URL . "/public/img/productos/" . $imagen; ?>" width="100%" alt="">
-                          </output>
+
+                          <output id="list"></output>
                           <script>
                             function archivo(evt) {
                               var files = evt.target.files; // FileList object
@@ -315,14 +436,13 @@ include ('../../App/controllers/laboratorios/listado_laboratorios.php');
                             }
                             document.getElementById('file').addEventListener('change', archivo, false);
                           </script>
-
                         </div>
                       </div>
                     </div>
                     <hr>
                     <div class="form-group">
                       <a href="index.php" class="btn btn-secondary">Cancelar</a>
-                      <button type="submit" class="btn btn-success">Actualizar</button>
+                      <button type="submit" class="btn btn-primary">Registrar</button>
                     </div>
                   </form>
                 </div>
@@ -349,5 +469,5 @@ include ('../../App/controllers/laboratorios/listado_laboratorios.php');
 <!-- /.control-sidebar -->
 
 
-<?php include ('../../layout/parte2.php'); ?>
-<?php include ('../../layout/mensajes.php'); ?>
+<?php include ('../../../layout/parte2.php'); ?>
+<?php include ('../../../layout/mensajes.php'); ?>

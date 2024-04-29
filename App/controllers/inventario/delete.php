@@ -10,11 +10,11 @@ if($sentencia->execute()){
     session_start();
     $_SESSION['mensaje'] = "Producto eliminado con Exito";
     $_SESSION['icono'] = "success";
-    header('Location: '.$URL.'/views/inventario');
+    header('Location: '.$URL.'/views/modulo-bodega/inventario');
 
 } else {
     session_start();
     $_SESSION['mensaje'] = "Error al eliminar Producto";
     $_SESSION['icono'] = "error";
-    header('Location: '.$URL.'/views/inventario/delete.php?id='.$id_producto);
+    header('Location: '.$URL.'/views/modulo-bodega/inventario/delete.php?id='.$id_producto);
 }

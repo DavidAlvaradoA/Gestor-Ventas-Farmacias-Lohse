@@ -1,8 +1,8 @@
 <?php
-include ('../../App/config.php');
-include ('../../layout/sesion.php');
-include ('../../layout/parte1.php');
-include ('../../App/controllers/proveedores/listado_proveedores.php');
+include ('../../../App/config.php');
+include ('../../../layout/sesion.php');
+include ('../../../layout/parte1.php');
+include ('../../../App/controllers/proveedores/listado_proveedores.php');
 
 ?>
 
@@ -208,7 +208,7 @@ include ('../../App/controllers/proveedores/listado_proveedores.php');
                               $('#direccion<?php echo $id_proveedor; ?>').focus();
                               $('#lbl_direccion<?php echo $id_proveedor; ?>').css('display', 'block');
                             } else {
-                              var url = "../../App/controllers/proveedores/update_proveedor.php";
+                              var url = "../../../App/controllers/proveedores/update_proveedor.php";
 
                               $.get(url, { nombre_proveedor: nombre_proveedor, celular: celular, telefono: telefono, empresa: empresa, email: email, direccion: direccion, id_proveedor: id_proveedor }, function (datos) {
                                 $('#respuesta_update<?php echo $id_proveedor; ?>').html(datos);
@@ -376,7 +376,7 @@ include ('../../App/controllers/proveedores/listado_proveedores.php');
 
                             var id_proveedor = '<?php echo $id_proveedor; ?>';
 
-                            var url2 = "../../App/controllers/proveedores/delete_proveedor.php";
+                            var url2 = "../../../App/controllers/proveedores/delete_proveedor.php";
 
                             $.get(url2, { id_proveedor: id_proveedor }, function (datos) {
                               $('#respuesta_delete<?php echo $id_proveedor; ?>').html(datos);
@@ -414,8 +414,8 @@ include ('../../App/controllers/proveedores/listado_proveedores.php');
 </aside>
 <!-- /.control-sidebar -->
 
-<?php include ('../../layout/mensajes.php'); ?>
-<?php include ('../../layout/parte2.php'); ?>
+<?php include ('../../../layout/mensajes.php'); ?>
+<?php include ('../../../layout/parte2.php'); ?>
 
 <script>
   $(function () {
@@ -565,7 +565,7 @@ include ('../../App/controllers/proveedores/listado_proveedores.php');
       $('#lbl_direccion').css('display', 'block');
 
     } else {
-      var url = "../../App/controllers/proveedores/create_proveedor.php";
+      var url = "../../../App/controllers/proveedores/create_proveedor.php";
 
       $.get(url, {
         nombre_proveedor: nombre_proveedor,

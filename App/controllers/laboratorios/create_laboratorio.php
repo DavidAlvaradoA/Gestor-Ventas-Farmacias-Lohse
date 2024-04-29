@@ -17,7 +17,7 @@ VALUES  (:nombre_laboratorio, :fecha_creacion)");
             $_SESSION['icono'] = "success";
             ?>
             <script>
-                location.href ="<?php echo $URL;?>/views/laboratorios";
+                location.href ="<?php echo $URL;?>/views/modulo-bodega/laboratorios";
             </script>
             <?php
         } else {
@@ -26,7 +26,7 @@ VALUES  (:nombre_laboratorio, :fecha_creacion)");
             $_SESSION['icono'] = "error";
             ?>
             <script>
-                location.href ="<?php echo $URL;?>/views/laboratorios";
+                location.href ="<?php echo $URL;?>/views/modulo-bodega/laboratorios";
             </script>
             <?php
         }

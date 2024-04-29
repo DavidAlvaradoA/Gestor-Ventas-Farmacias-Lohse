@@ -27,14 +27,14 @@ VALUES  (:nombres,:apellidos,:rut, :email, :id_rol, :password_user, :fecha_hora_
         session_start();
         $_SESSION['mensaje'] = "Usuario creado con Exito";
         $_SESSION['icono'] = "success";
-        header('Location: '.$URL.'/views/usuarios');
+        header('Location: '.$URL.'/views/modulo-usuarios/usuarios');
 
 } else{
         //echo "La contraseña debe ser identica";
         session_start();
         $_SESSION['mensaje'] = "La contraseña debe ser identica";
         $_SESSION['icono'] = "error";
-        header('Location: '.$URL.'/views/usuarios/create.php');
+        header('Location: '.$URL.'/views/modulo-usuarios/usuarios/create.php');
 }
 
 

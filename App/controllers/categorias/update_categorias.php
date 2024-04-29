@@ -18,7 +18,7 @@ $id_categoria = $_GET['id_categoria'];
         $_SESSION['icono'] = "success";
         ?>
         <script>
-            location.href ="<?php echo $URL;?>/views/categorias";
+            location.href ="<?php echo $URL;?>/views/modulo-bodega/categorias";
         </script>
         <?php
     } else{
@@ -27,7 +27,7 @@ $id_categoria = $_GET['id_categoria'];
         $_SESSION['icono'] = "error";
         ?>
         <script>
-        location.href ="<?php echo $URL;?>/views/categorias";
+        location.href ="<?php echo $URL;?>/views/modulo-bodega/categorias";
         </script>
         <?php
     }

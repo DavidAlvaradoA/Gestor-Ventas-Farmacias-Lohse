@@ -33,14 +33,14 @@ if($password_user == ""){
         session_start();
         $_SESSION['mensaje'] = "Usuario actualizado con Exito";
         $_SESSION['icono'] = "success";
-        header('Location: '.$URL.'/views/usuarios');
+        header('Location: '.$URL.'/views/modulo-usuarios/usuarios');
     
     } else{
         //echo "La contraseña debe ser identica";
         session_start();
         $_SESSION['mensaje'] = "La contraseña debe ser identica";
         $_SESSION['icono'] = "error";
-        header('Location: '.$URL.'/views/usuarios/update.php?id='.$id_usuario);
+        header('Location: '.$URL.'/views/modulo-usuarios/usuarios/update.php?id='.$id_usuario);
     }
 } else {
     if($password_user == $password_repeat){
@@ -67,14 +67,14 @@ if($password_user == ""){
         session_start();
         $_SESSION['mensaje'] = "Usuario actualizado con Exito";
         $_SESSION['icono'] = "success";
-        header('Location: '.$URL.'/views/usuarios');
+        header('Location: '.$URL.'/views/modulo-usuarios/usuarios');
     
     } else{
         //echo "La contraseña debe ser identica";
         session_start();
         $_SESSION['mensaje'] = "La contraseña debe ser identica";
         $_SESSION['icono'] = "error";
-        header('Location: '.$URL.'/views/usuarios/update.php?id='.$id_usuario);
+        header('Location: '.$URL.'/views/modulo-usuarios/usuarios/update.php?id='.$id_usuario);
     }
 }
 

@@ -1,9 +1,9 @@
 <?php
-include ('../../App/config.php');
-include ('../../layout/sesion.php');
-include ('../../layout/parte1.php');
-include ('../../App/Controllers/usuarios/show_usuario.php');
-include ('../../App/Controllers/roles/listado_roles.php');
+include ('../../../App/config.php');
+include ('../../../layout/sesion.php');
+include ('../../../layout/parte1.php');
+include ('../../../App/Controllers/usuarios/show_usuario.php');
+include ('../../../App/Controllers/roles/listado_roles.php');
 ?>
 
 
@@ -39,7 +39,7 @@ include ('../../App/Controllers/roles/listado_roles.php');
             <div class="card-body">
               <div class="row">
                 <div class="col-md-12">
-                  <form action="../../App/controllers/usuarios/delete_usuario.php" method="post">
+                  <form action="../../../App/controllers/usuarios/delete_usuario.php" method="post">
                   <input type="text" name="id_usuario" value="<?php echo $id_usuario_get;?>" hidden>
                     <div class="row">
                       <div class="col-md-12">
@@ -114,5 +114,5 @@ include ('../../App/Controllers/roles/listado_roles.php');
 
 
 
-<?php include ('../../layout/mensajes.php'); ?>
-<?php include ('../../layout/parte2.php'); ?>
+<?php include ('../../../layout/mensajes.php'); ?>
+<?php include ('../../../layout/parte2.php'); ?>

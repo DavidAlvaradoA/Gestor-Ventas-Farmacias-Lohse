@@ -12,7 +12,7 @@ $id_laboratorio = $_GET['id_laboratorio'];
         $_SESSION['icono'] = "success";
         ?>
         <script>
-            location.href ="<?php echo $URL;?>/views/laboratorios";
+            location.href ="<?php echo $URL;?>/views/modulo-bodega/laboratorios";
         </script>
         <?php
     } else {
@@ -21,7 +21,7 @@ $id_laboratorio = $_GET['id_laboratorio'];
         $_SESSION['icono'] = "error";
         ?>
         <script>
-            location.href ="<?php echo $URL;?>/views/laboratorios";
+            location.href ="<?php echo $URL;?>/views/modulo-bodega/laboratorios";
         </script>
         <?php
     }

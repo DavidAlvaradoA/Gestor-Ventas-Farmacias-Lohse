@@ -1,7 +1,7 @@
 <?php
-  include('../../App/config.php');
-  include('../../layout/sesion.php');
-  include('../../layout/parte1.php');
+  include('../../../App/config.php');
+  include('../../../layout/sesion.php');
+  include('../../../layout/parte1.php');
 
 ?>
 
@@ -37,7 +37,7 @@
               <div class="card-body">
                 <div class="row">
                   <div class="col-md-12">
-                    <form  action="../../App/controllers/roles/create.php" method="post">
+                    <form  action="../../../App/controllers/roles/create.php" method="post">
                       <div class="form-group">
                       <label for="">Nombre de Rol</label>
                       <input type="text" name="rol"class="form-control" placeholder="Ingrese nombre del Rol..." required>
@@ -76,5 +76,5 @@
   <!-- /.control-sidebar -->
 
 
-<?php include('../../layout/parte2.php');?>
-<?php include('../../layout/mensajes.php');?>
+<?php include('../../../layout/parte2.php');?>
+<?php include('../../../layout/mensajes.php');?>

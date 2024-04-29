@@ -12,7 +12,7 @@ $id_marca = $_GET['id_marca'];
         $_SESSION['icono'] = "success";
         ?>
         <script>
-            location.href ="<?php echo $URL;?>/views/Marcas";
+            location.href ="<?php echo $URL;?>/views/modulo-bodega/Marcas";
         </script>
         <?php
     } else {
@@ -21,7 +21,7 @@ $id_marca = $_GET['id_marca'];
         $_SESSION['icono'] = "error";
         ?>
         <script>
-            location.href ="<?php echo $URL;?>/views/Marcas";
+            location.href ="<?php echo $URL;?>/views/modulo-bodega/Marcas";
         </script>
         <?php
     }

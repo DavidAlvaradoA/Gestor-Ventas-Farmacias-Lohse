@@ -1,9 +1,9 @@
 <?php
-  include('../../App/config.php');
-  include('../../layout/sesion.php');
-  include('../../layout/parte1.php');
+  include('../../../App/config.php');
+  include('../../../layout/sesion.php');
+  include('../../../layout/parte1.php');
 
-  include('../../App/controllers/roles/update_roles.php');
+  include('../../../App/controllers/roles/update_roles.php');
 
 ?>
 
@@ -39,7 +39,7 @@
               <div class="card-body">
                 <div class="row">
                   <div class="col-md-12">
-                    <form  action="../../App/controllers/roles/update.php" method="post">
+                    <form  action="../../../App/controllers/roles/update.php" method="post">
                       <div class="form-group">
                       <input type="text" name="id_rol" value="<?php echo $id_rol_get;?>" hidden>
                       <label for="">Nombre del Rol</label>
@@ -78,5 +78,5 @@
   </aside>
   <!-- /.control-sidebar -->
 
-<?php include('../../layout/parte2.php');?>
-<?php include('../../layout/mensajes.php');?>
+<?php include('../../../layout/parte2.php');?>
+<?php include('../../../layout/mensajes.php');?>

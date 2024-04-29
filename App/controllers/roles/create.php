@@ -15,13 +15,13 @@ VALUES  (:rol, :fecha_creacion)");
             session_start();
             $_SESSION['mensaje'] = "Rol creado con Exito";
             $_SESSION['icono'] = "success";
-            header('Location: '.$URL.'/views/roles');
+            header('Location: '.$URL.'/views/modulo-roles/roles');
 
         } else {
             session_start();
             $_SESSION['mensaje'] = "Error al registrar Rol";
             $_SESSION['icono'] = "error";
-            header('Location: '.$URL.'/views/roles/create.php');
+            header('Location: '.$URL.'/views/modulo-roles/roles/create.php');
         }
 
 

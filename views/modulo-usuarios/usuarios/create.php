@@ -1,9 +1,9 @@
 <?php
-include ('../../App/config.php');
-include ('../../layout/sesion.php');
-include ('../../layout/parte1.php');
+include ('../../../App/config.php');
+include ('../../../layout/sesion.php');
+include ('../../../layout/parte1.php');
 
-include ('../../App/controllers/roles/listado_roles.php');
+include ('../../../App/controllers/roles/listado_roles.php');
 
 ?>
 
@@ -39,7 +39,7 @@ include ('../../App/controllers/roles/listado_roles.php');
             <div class="card-body">
               <div class="row">
                 <div class="col-md-12">
-                  <form action="../../App/controllers/usuarios/create.php" method="post">
+                  <form action="../../../App/controllers/usuarios/create.php" method="post">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="row">
@@ -152,5 +152,5 @@ include ('../../App/controllers/roles/listado_roles.php');
 
 -->
 
-<?php include ('../../layout/parte2.php'); ?>
-<?php include ('../../layout/mensajes.php'); ?>
+<?php include ('../../../layout/parte2.php'); ?>
+<?php include ('../../../layout/mensajes.php'); ?>
