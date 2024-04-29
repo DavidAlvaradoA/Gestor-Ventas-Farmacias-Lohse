@@ -40,7 +40,7 @@
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="#" class="nav-link">GESTOR VENTAS</a>
+          <a href="#" class="nav-link">GESTOR FARMACIA LOHSE</a>
         </li>
 
       </ul>
@@ -85,24 +85,18 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
-      <a href="<?php echo $URL; ?>" class="brand-link">
-        <img src="<?php echo $URL; ?>/public/img/logofarmaciatrans.png"
-          class="brand-image" style="opacity: .8">
-        <span class="brand-text font-weight-light"> Farmacia Lohse</span>
-      </a>
+
 
       <!-- Sidebar -->
       <div class="sidebar">
-        <p>
-        <h6 style="text-align: center; color: white"><?php echo $rol_sesion ?></h6>
         <!-- Sidebar user panel (optional) -->
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-          <div class="image">
-            <img src="<?php echo $URL; ?>/public/templates/AdminLTE-3.2.0/dist/img/user2-160x160.jpg"
-              class="img-circle elevation-2" alt="User Image">
-          </div>
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex" style="display: flex; justify-content: center ">
+          <a href="<?php echo $URL; ?>" style="padding-right: 10px; padding-top: 3px">
+            <img src="<?php echo $URL; ?>/public/img/logofarmaciatrans.png" class="brand-image" >
+          </a>
           <div class="info">
-            <a href="#" class="d-block"><?php echo $nombres_sesion ?> <?php echo $apellidos_sesion;?></a>
+            <h6 style="text-align: center; color: gray; font-size: 15px"><?php echo $rol_sesion ?></h6>
+            <a href="#" class="d-block"><?php echo $nombres_sesion ?> <?php echo $apellidos_sesion; ?></a>
           </div>
         </div>
 
@@ -146,7 +140,7 @@
                     <p>Listado de Roles</p>
                   </a>
                 </li>
-                
+
                 <li class="nav-item">
                   <a href="<?php echo $URL; ?>/views/modulo-usuarios/usuarios/create.php" class="nav-link">
                     <i class="nav-icon fas fa-user"></i>
@@ -179,7 +173,7 @@
                     <p>Listado de Categorías</p>
                   </a>
                 </li>
-                
+
                 <li class="nav-item">
                   <a href="<?php echo $URL; ?>/views/modulo-bodega/inventario/create.php" class="nav-link">
                     <i class="nav-icon fas fa-plus"></i>
@@ -192,7 +186,7 @@
                     <p>Listado de Productos</p>
                   </a>
                 </li>
-                
+
                 <li class="nav-item">
                   <a href="<?php echo $URL; ?>/views/modulo-bodega/marcas" class="nav-link">
                     <i class="nav-icon fas fa-list-ul"></i>

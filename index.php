@@ -16,7 +16,7 @@
       <div class="container-fluid" style="text-align: center;" style="display: flex;">
         <div class="row mb-2">
           <div class="col-sm-12">
-            <h1 class="m-0">Bienvenido al sistema  <h5><?php echo $rol_sesion;?> </h5></h1>
+            <h1 class="m-0"> <b>Bienvenido al sistema</b> <h4><?php echo $nombres_sesion ?> <?php echo $apellidos_sesion; ?></h4></h1>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
