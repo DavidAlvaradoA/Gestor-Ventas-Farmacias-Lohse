@@ -88,11 +88,13 @@
       <a href="<?php echo $URL; ?>" class="brand-link">
         <img src="<?php echo $URL; ?>/public/img/logofarmaciatrans.png"
           class="brand-image" style="opacity: .8">
-        <span class="brand-text font-weight-light">Gestor Farmacia</span>
+        <span class="brand-text font-weight-light"> Farmacia Lohse</span>
       </a>
 
       <!-- Sidebar -->
       <div class="sidebar">
+        <p>
+        <h6 style="text-align: center; color: white"><?php echo $rol_sesion ?></h6>
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
