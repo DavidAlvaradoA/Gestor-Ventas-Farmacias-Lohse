@@ -13,7 +13,7 @@ $pdo = new PDO($servidor,USUARIO,PASSWORD,array(PDO::MYSQL_ATTR_INIT_COMMAND=>"S
     echo "Error al conectar con la base de datos";
 }
 
-$URL =  "http://localhost/Gestor-Ventas";
+$URL =  "http://localhost/Gestor-Ventas-Farmacias-Lohse";
 
 
 date_default_timezone_set("America/Santiago");
