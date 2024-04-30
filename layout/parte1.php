@@ -244,13 +244,13 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="<?php echo $URL; ?>/views/modulo-administracion/ventas/create.php" class="nav-link">
+                  <a href="<?php echo $URL; ?>/views/modulo-ventas/ventas/create.php" class="nav-link">
                     <i class="nav-icon fas fa-plus"></i>
                     <p>Realizar Venta</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="<?php echo $URL; ?>/views/modulo-administracion/ventas" class="nav-link">
+                  <a href="<?php echo $URL; ?>/views/modulo-ventas/ventas" class="nav-link">
                     <i class="nav-icon fas fa-list-ul"></i>
                     <p>Listado de ventas</p>
                   </a>
