@@ -42,12 +42,12 @@
                 <h3><?php echo $contador_usuarios;?></h3>
                   <p>Usuarios Registrados</p>
               </div>
-              <a href="<?php echo $URL;?>/usuarios/create.php">
+              <a href="<?php echo $URL;?>/views/modulo-usuarios/usuarios/create.php">
                 <div class="icon">
                   <i class="fas fa-user-plus"></i>
                 </div>
               </a>
-              <a href="<?php echo $URL;?>/usuarios" class="small-box-footer">
+              <a href="<?php echo $URL;?>/views/modulo-usuarios/usuarios" class="small-box-footer">
                 Más detalles <i class="fas fa-arrow-circle-right"></i>
               </a>
             </div>
@@ -66,12 +66,12 @@
                 <h3><?php echo $contador_roles;?></h3>
                   <p>Roles Registrados</p>
               </div>
-              <a href="<?php echo $URL;?>/roles/create.php">
+              <a href="<?php echo $URL;?>/views/modulo-roles/roles/create.php">
                 <div class="icon">
                   <i class="fas fa-address-card"></i>
                 </div>
               </a>
-              <a href="<?php echo $URL;?>/roles" class="small-box-footer">
+              <a href="<?php echo $URL;?>/views/modulo-roles/roles" class="small-box-footer">
                 Más detalles <i class="fas fa-arrow-circle-right"></i>
               </a>
             </div>
@@ -89,12 +89,12 @@
                 <h3><?php echo $contador_categorias;?></h3>
                   <p>Categorías Registradas</p>
               </div>
-              <a href="<?php echo $URL;?>/categorias">
+              <a href="<?php echo $URL;?>/views/modulo-bodega/categorias">
                 <div class="icon">
                   <i class="fas fa-tags"></i>
                 </div>
               </a>
-              <a href="<?php echo $URL;?>/categorias" class="small-box-footer">
+              <a href="<?php echo $URL;?>/views/modulo-bodega/categorias" class="small-box-footer">
                 Más detalles <i class="fas fa-arrow-circle-right"></i>
               </a>
             </div>
@@ -112,12 +112,12 @@
                 <h3><?php echo $contador_productos;?></h3>
                   <p>Productos Registrados</p>
               </div>
-              <a href="<?php echo $URL;?>/inventario/create.php">
+              <a href="<?php echo $URL;?>/views/modulo-bodega/inventario/create.php">
                 <div class="icon">
                   <i class="fas fa-list"></i>
                 </div>
               </a>
-              <a href="<?php echo $URL;?>/inventario" class="small-box-footer">
+              <a href="<?php echo $URL;?>/views/modulo-bodega/inventario" class="small-box-footer">
                 Más detalles <i class="fas fa-arrow-circle-right"></i>
               </a>
             </div>

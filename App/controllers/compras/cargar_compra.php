@@ -3,13 +3,30 @@
 $id_compra_get = $_GET['id'];
 
 
-$sql_compras = "SELECT *, com.precio_compra as ingreso_compra, INV.codigo_producto as codigo_producto, INV.nombre_producto as nombre_producto, 
-                INV.descripcion_producto as descripcion_producto, INV.stock_producto as stock_producto,
-                INV.stock_minimo as stock_minimo, INV.stock_maximo as stock_maximo, INV.precio_compra as precio_producto,
-                INV.precio_venta as precio_venta_p, INV.fecha_ingreso as fecha_ingreso, INV.imagen_producto as imagen,
-                CAT.nombre_categoria as nombre_categoria, US.nombres as nombre_usuario, PRO.nombre_proveedor as nombre_proveedor,
-                PRO.celular as celular_proveedor, PRO.telefono as telefono_proveedor, PRO.empresa as empresa_proveedor,
-                PRO.email as email_proveedor, PRO.direccion as direccion_proveedor
+$sql_compras = "SELECT *, 
+                com.cantidad as cantidad,   
+                MAR.nombre_marca as nombre_marca, 
+                LAB.nombre_laboratorio as nombre_laboratorio, 
+                com.precio_compra as ingreso_compra, 
+                INV.codigo_producto as codigo_producto, 
+                INV.nombre_producto as nombre_producto, 
+                INV.stock_producto as stock_producto,
+                INV.stock_minimo as stock_minimo, 
+                INV.stock_maximo as stock_maximo, 
+                INV.precio_compra as precio_producto,
+                INV.precio_venta as precio_venta_p, 
+                INV.fecha_ingreso as fecha_ingreso, 
+                INV.imagen_producto as imagen,
+                CAT.nombre_categoria as nombre_categoria, 
+                US.nombres as nombre_usuario, 
+                US.apellidos as apellidos_usuario,
+                PRO.nombre_proveedor as nombre_proveedor,
+                PRO.celular as celular_proveedor, 
+                PRO.telefono as telefono_proveedor, 
+                PRO.empresa as empresa_proveedor,
+                PRO.email as email_proveedor, 
+                PRO.direccion as direccion_proveedor
+                
                 FROM compras as com 
                 INNER JOIN inventario as INV 
                 ON com.id_producto = INV.id_producto 
@@ -19,6 +36,10 @@ $sql_compras = "SELECT *, com.precio_compra as ingreso_compra, INV.codigo_produc
                 ON US.id_usuario = com.id_usuario
                 INNER JOIN proveedores PRO 
                 ON PRO.id_proveedor = com.id_proveedor
+                INNER JOIN marca MAR
+                ON MAR.id_marca = INV.id_marca
+                INNER JOIN laboratorio LAB
+                ON LAB.id_laboratorio = INV.id_laboratorio
                 WHERE com.id_compra = '$id_compra_get' ";
 
 $query_compras = $pdo->prepare($sql_compras);
@@ -35,7 +56,6 @@ foreach($datos_compras as $datos_compra){
     $categoria = $datos_compra['nombre_categoria'];
     $usuario = $datos_compra['nombre_usuario'];
     $nombre_producto = $datos_compra['nombre_producto'];
-    $descripcion = $datos_compra['descripcion_producto'];
     $stock = $datos_compra['stock_producto'];
     $stock_minimo = $datos_compra['stock_minimo'];
     $stock_maximo = $datos_compra['stock_maximo'];
@@ -43,6 +63,12 @@ foreach($datos_compras as $datos_compra){
     $precio_venta = $datos_compra['precio_venta_p'];
     $fecha_compra = $datos_compra['fecha_ingreso'];
     $imagen = $datos_compra['imagen'];
+
+    //marca
+    $marca = $datos_compra['nombre_marca'];
+
+    //Laboratorio
+    $laboratorio = $datos_compra['nombre_laboratorio'];
 
     //Proveedor
     $nombre_proveedor = $datos_compra['nombre_proveedor'];

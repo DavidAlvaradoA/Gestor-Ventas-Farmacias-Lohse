@@ -12,7 +12,7 @@
       <div class="container-fluid" style="text-align: center;" style="display: flex;">
         <div class="row mb-2">
           <div class="col-sm-12">
-            <h1 class="m-0">Registrar nuevo Rol </h1>
+            <h1 class="m-0">Registrar nuevo rol </h1>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -39,7 +39,7 @@
                   <div class="col-md-12">
                     <form  action="../../../App/controllers/roles/create.php" method="post">
                       <div class="form-group">
-                      <label for="">Nombre de Rol</label>
+                      <label for="">Nombre de Rol:</label>
                       <input type="text" name="rol"class="form-control" placeholder="Ingrese nombre del Rol..." required>
                       </div>
                       

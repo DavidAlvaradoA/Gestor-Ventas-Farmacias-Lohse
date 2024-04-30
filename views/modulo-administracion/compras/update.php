@@ -74,7 +74,7 @@ include ('../../../App/controllers/compras/cargar_Compra.php');
                                                                         <th>Categoría</th>
                                                                         <th>Imagen</th>
                                                                         <th>Nombre</th>
-                                                                        <th>Descripción</th>
+                                                                        <th>Marca</th>
                                                                         <th>Stock</th>
                                                                         <th>Precio compra</th>
                                                                         <th>Precio Venta</th>
@@ -109,8 +109,8 @@ include ('../../../App/controllers/compras/cargar_Compra.php');
                                                                                         var nombre_producto = "<?php echo $datos_producto['nombre_producto'] ?>";
                                                                                         $('#nombre_producto').val(nombre_producto);
 
-                                                                                        var descripcion_producto = "<?php echo $datos_producto['descripcion_producto'] ?>";
-                                                                                        $('#descripcion_productos').val(descripcion_producto);
+                                                                                        var marca = "<?php echo $datos_producto['nombre_marca'] ?>";
+                                                                                        $('#marca').val(marca);
 
                                                                                         var stock_producto = "<?php echo $datos_producto['stock_producto'] ?>";
                                                                                         $('#stock_producto').val(stock_producto);
@@ -151,7 +151,7 @@ include ('../../../App/controllers/compras/cargar_Compra.php');
                                                                             </td>
                                                                             <td><?php echo $datos_producto['nombre_producto'] ?>
                                                                             </td>
-                                                                            <td><?php echo $datos_producto['descripcion_producto'] ?>
+                                                                            <td><?php echo $datos_producto['nombre_marca'] ?>
                                                                             </td>
                                                                             <td><?php echo $datos_producto['stock_producto'] ?>
                                                                             </td>
@@ -161,7 +161,7 @@ include ('../../../App/controllers/compras/cargar_Compra.php');
                                                                             </td>
                                                                             <td><?php echo $datos_producto['fecha_ingreso'] ?>
                                                                             </td>
-                                                                            <td><?php echo $datos_producto['nombre_usuario'] ?>
+                                                                            <td><?php echo $datos_producto['nombre_usuario'], " ", $datos_producto['apellidos_usuario'] ?>
                                                                             </td>
                                                                         </tr>
                                                                         <?php
@@ -220,12 +220,18 @@ include ('../../../App/controllers/compras/cargar_Compra.php');
                                                                     class="form-control" id="nombre_producto" disabled>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-8">
+                                                        <div class="col-md-4">
                                                             <div class="form-group">
-                                                                <label for="">Descripción:</label>
-                                                                <textarea name="descripcion_producto" cols="30" rows="1"
-                                                                    class="form-control" id="descripcion_productos"
-                                                                    disabled><?= $descripcion; ?></textarea>
+                                                                <label for="">Marca:</label>
+                                                                <input name="marca" class="form-control" id="marca"
+                                                                    value="<?= $marca; ?>"  disabled>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="">Laboratorio:</label>
+                                                                <input name="laboratorio" class="form-control" id="laboratorio"
+                                                                    value="<?= $laboratorio; ?>"  disabled>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -506,7 +512,7 @@ include ('../../../App/controllers/compras/cargar_Compra.php');
                             <div class="row" style="margin: 1px">
                                 <div class="col-md-6">
                                     <div class="form-group" style="text-align:center">
-                                        <label for="">Stock actual:</label>
+                                        <label for="">Stock Anterior:</label>
                                         <input type="text" id="stock_actual" class="form-control"
                                             value="<?= $stock= $stock-$ingreso_stock; ?>" disabled>
                                     </div>
@@ -533,7 +539,7 @@ include ('../../../App/controllers/compras/cargar_Compra.php');
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="">Usuario:</label>
-                                    <input type="text" value="<?php echo $usuario; ?>" class="form-control"
+                                    <input type="text" value="<?php echo $usuario; ?> <?php echo $apellidos_sesion; ?>" class="form-control"
                                         disabled>
                                 </div>
                             </div>

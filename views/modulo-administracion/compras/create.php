@@ -3,6 +3,7 @@ include ('../../../App/config.php');
 include ('../../../layout/sesion.php');
 include ('../../../layout/parte1.php');
 include ('../../../App/controllers/inventario/listado_productos.php');
+include ('../../../App/controllers/marcas/listado_marcas.php');
 include ('../../../App/controllers/proveedores/listado_proveedores.php');
 include ('../../../App/controllers/compras/listado_Compras.php');
 
@@ -74,7 +75,7 @@ include ('../../../App/controllers/compras/listado_Compras.php');
                                                                         <th>Categoría</th>
                                                                         <th>Imagen</th>
                                                                         <th>Nombre</th>
-                                                                        <th>Descripción</th>
+                                                                        <th>Marca</th>
                                                                         <th>Stock</th>
                                                                         <th>Precio compra</th>
                                                                         <th>Precio Venta</th>
@@ -109,8 +110,8 @@ include ('../../../App/controllers/compras/listado_Compras.php');
                                                                                         var nombre_producto = "<?php echo $datos_producto['nombre_producto'] ?>";
                                                                                         $('#nombre_producto').val(nombre_producto);
 
-                                                                                        var descripcion_producto = "<?php echo $datos_producto['descripcion_producto'] ?>";
-                                                                                        $('#descripcion_productos').val(descripcion_producto);
+                                                                                        var marca = "<?php echo $datos_producto['nombre_marca'] ?>";
+                                                                                        $('#marca').val(marca);
 
                                                                                         var stock_producto = "<?php echo $datos_producto['stock_producto'] ?>";
                                                                                         $('#stock_producto').val(stock_producto);
@@ -151,7 +152,7 @@ include ('../../../App/controllers/compras/listado_Compras.php');
                                                                             </td>
                                                                             <td><?php echo $datos_producto['nombre_producto'] ?>
                                                                             </td>
-                                                                            <td><?php echo $datos_producto['descripcion_producto'] ?>
+                                                                            <td><?php echo $datos_producto['nombre_marca'] ?>
                                                                             </td>
                                                                             <td><?php echo $datos_producto['stock_producto'] ?>
                                                                             </td>
@@ -222,9 +223,9 @@ include ('../../../App/controllers/compras/listado_Compras.php');
                                                         </div>
                                                         <div class="col-md-8">
                                                             <div class="form-group">
-                                                                <label for="">Descripción:</label>
-                                                                <textarea name="descripcion_producto" cols="30" rows="1"
-                                                                    class="form-control" id="descripcion_productos"
+                                                                <label for="">Marca:</label>
+                                                                <textarea name="marca" cols="30" rows="1"
+                                                                    class="form-control" id="marca"
                                                                     disabled></textarea>
                                                             </div>
                                                         </div>

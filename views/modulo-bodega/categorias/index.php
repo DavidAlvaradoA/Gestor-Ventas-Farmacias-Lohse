@@ -58,7 +58,7 @@
                         <td><?php echo $contador = $contador + 1?></td>
                         <td><?php echo $datos_categoria['nombre_categoria']?></td>
                         <td>
-                          <div class="btn-group">
+                          <div class="btn-group btn-group-sm">
                             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-update<?php echo $id_categoria;?>">
                             <i class="fa fa-pencil-alt"></i>  Editar
                             </button>

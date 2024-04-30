@@ -92,8 +92,8 @@
                                             </div>
                                             <div class="col-md-6">
                                               <div class="form-group">
-                                                <label for="">Descripción Producto:</label>
-                                                <input type="text" class="form-control" value="<?php echo $datos_compra['descripcion_producto']?>" disabled>
+                                                <label for="">Marca:</label>
+                                                <input type="text" class="form-control" value="<?php echo $datos_compra['nombre_marca']?>" disabled>
                                               </div>
                                             </div>
                                           </div>
@@ -147,7 +147,7 @@
                                             <div class="col-md-3">
                                               <div class="form-group">
                                                 <label for="">Registrado Por:</label>
-                                                <input type="text" class="form-control" value="<?php echo $datos_compra['nombre_usuario']?>" disabled>
+                                                <input type="text" class="form-control" value="<?php echo $datos_compra['nombre_usuario'], " " ,$datos_compra['apellidos_usuario']?>" disabled>
                                               </div>
                                             </div>
                                           </div>
@@ -237,7 +237,7 @@
                             </div>
                             <!-- /.modal -->
                           </td>
-                          <td><?php echo $datos_compra['nombre_usuario']?></td>
+                          <td><?php echo $datos_compra['nombre_usuario'], " " ,$datos_compra['apellidos_usuario']?></td>
                           <td>
                           <div class="btn-group">
                               <a href="show.php?id=<?php echo $id_compra;?>" type="button" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> Ver</a>
