@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Gestor Ventas | Farmacia</title>
+  <title>Gestor Ventas | Farmacia Lohse</title>
   <link rel="icon" href="<?php echo $URL; ?>/public/img/logofarmaciatrans.png" type="image/x-icon">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet"
@@ -228,6 +228,31 @@
                   <a href="<?php echo $URL; ?>/views/modulo-administracion/proveedores" class="nav-link">
                     <i class="nav-icon fas fa-list-ul"></i>
                     <p>Listado de Proveedores</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+
+            <li class="nav-item">
+              <a href="#" class="nav-link active">
+                <i class="nav-icon fas fa-shopping-basket"></i>
+                <p>
+                  Ventas
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="<?php echo $URL; ?>/views/modulo-administracion/ventas/create.php" class="nav-link">
+                    <i class="nav-icon fas fa-plus"></i>
+                    <p>Realizar Venta</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?php echo $URL; ?>/views/modulo-administracion/ventas" class="nav-link">
+                    <i class="nav-icon fas fa-list-ul"></i>
+                    <p>Listado de ventas</p>
                   </a>
                 </li>
               </ul>

@@ -7,6 +7,8 @@
   include('App/controllers/roles/listado_roles.php');
   include('App/controllers/categorias/listado_categorias.php');
   include('App/controllers/inventario/listado_productos.php');
+  include('App/controllers/proveedores/listado_proveedores.php');
+  include('App/controllers/compras/listado_compras.php');
 ?>
 
   <!-- Content Wrapper. Contains page content -->
@@ -118,6 +120,52 @@
                 </div>
               </a>
               <a href="<?php echo $URL;?>/views/modulo-bodega/inventario" class="small-box-footer">
+                Más detalles <i class="fas fa-arrow-circle-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-6">
+            <div class="small-box bg-dark">
+              <div class="inner">
+                <?php
+                $contador_proveedores = 0;
+                  foreach($datos_proveedores as $datos_proveedor){
+                    $contador_proveedores = $contador_proveedores +1;
+                  }
+                ?>
+                <h3><?php echo $contador_proveedores;?></h3>
+                  <p>Proveedores Registrados</p>
+              </div>
+              <a href="<?php echo $URL;?>/views/modulo-administracion/proveedores/index.php">
+                <div class="icon">
+                  <i class="fas fa-car"></i>
+                </div>
+              </a>
+              <a href="<?php echo $URL;?>/views/modulo-administracion/proveedores" class="small-box-footer">
+                Más detalles <i class="fas fa-arrow-circle-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-6">
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <?php
+                $contador_compras = 0;
+                  foreach($datos_compras as $datos_compra){
+                    $contador_compras = $contador_compras +1;
+                  }
+                ?>
+                <h3><?php echo $contador_compras;?></h3>
+                  <p>Compras Registrados</p>
+              </div>
+              <a href="<?php echo $URL;?>/views/modulo-administracion/compras/create.php">
+                <div class="icon">
+                  <i class="fas fa-cart-plus"></i>
+                </div>
+              </a>
+              <a href="<?php echo $URL;?>/views/modulo-administracion/compras" class="small-box-footer">
                 Más detalles <i class="fas fa-arrow-circle-right"></i>
               </a>
             </div>
