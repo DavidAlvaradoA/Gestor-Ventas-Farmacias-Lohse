@@ -281,8 +281,8 @@ include ('../../../App/controllers/laboratorios/listado_laboratorios.php');
                             <div class="form-group">
                               <label for="">Forma Farmacéutica:</label>
                               <select name="forma_farmaceutica" class="form-control">
-                                <option value="Forma 1">Forma 1</option>
-                                <option value="Forma 2">Forma 2</option>
+                                <option value="Comprimido">Comprimido</option>
+                                <option value="Jarabe">Jarabe</option>
                               </select>
                             </div>
                             <script>
