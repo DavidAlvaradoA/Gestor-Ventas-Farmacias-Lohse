@@ -66,31 +66,30 @@ include ('../../../App/controllers/inventario/listado_productos.php');
                                         </div>
                                         <div class="modal-body">
                                             <div class="table table-responsive">
-                                                <table id="example1"
+                                                <table id="example1" style="text-align: center"
                                                     class="table table-bordered table-striped table-sm">
                                                     <thead>
                                                         <tr>
-                                                            <th>Nro</th>
                                                             <th>Añadir</th>
                                                             <th>Código</th>
-                                                            <th>Categoría</th>
-                                                            <th>Imagen</th>
                                                             <th>Nombre</th>
                                                             <th>Marca</th>
-                                                            <th>Stock</th>
-                                                            <th>Precio compra</th>
-                                                            <th>Precio Venta</th>
-                                                            <th>Fecha compra</th>
-                                                            <th>Ingresado</th>
+                                                            <th>Principio</th>
+                                                            <th>Concentración</th>
+                                                            <th>Forma</th>
+                                                            <th>Bioequivalente</th>
+                                                            <th>Petitorio</th>
+                                                            <th>Comprimidos</th>
+                                                            <th>Medida</th>
+                                                            <th>Precio</th>
+                                                            <th>Vencimiento</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         <?php
-                                                        $contador = 0;
                                                         foreach ($datos_productos as $datos_producto) {
                                                             $id_producto = $datos_producto['id_producto'] ?>
                                                             <tr>
-                                                                <td><?php echo $contador = $contador + 1 ?></td>
                                                                 <td>
                                                                     <button class="btn btn-info btn-sm"
                                                                         id="btn_seleccionar<?php echo $id_producto; ?>">
@@ -99,40 +98,36 @@ include ('../../../App/controllers/inventario/listado_productos.php');
                                                                     <script>
                                                                         $('#btn_seleccionar<?php echo $id_producto; ?>').click(function () {
 
+                                                                            var id_producto = "<?php echo $id_producto; ?>";
+                                                                            $('#id_producto').val(id_producto);
+
                                                                             var producto = "<?php echo $datos_producto['nombre_producto'] ?>";
                                                                             $('#producto').val(producto);
 
                                                                             var marca = "<?php echo $datos_producto['nombre_marca'] ?>";
                                                                             $('#detalle').val(marca);
 
-                                                                                                                                        
+                                                                            var precio_venta = "<?php echo $datos_producto['precio_venta'] ?>";
+                                                                            $('#precio_venta').val(precio_venta);
+                                                                            $('#cantidad').focus();
+
 
                                                                             //$('#modal-buscar-producto').modal('toggle');
                                                                         });        
                                                                     </script>
                                                                 </td>
-                                                                <td><?php echo $datos_producto['codigo_producto'] ?>
-                                                                </td>
-                                                                <td><?php echo $datos_producto['categoria'] ?>
-                                                                </td>
-                                                                <td>
-                                                                    <img src="<?php echo $URL . "/public/img/productos/" . $datos_producto['imagen_producto'] ?>"
-                                                                        width="50px" alt="">
-                                                                </td>
-                                                                <td><?php echo $datos_producto['nombre_producto'] ?>
-                                                                </td>
-                                                                <td><?php echo $datos_producto['nombre_marca'] ?>
-                                                                </td>
-                                                                <td><?php echo $datos_producto['stock_producto'] ?>
-                                                                </td>
-                                                                <td><?php echo $datos_producto['precio_compra'] ?>
-                                                                </td>
-                                                                <td><?php echo $datos_producto['precio_venta'] ?>
-                                                                </td>
-                                                                <td><?php echo $datos_producto['fecha_ingreso'] ?>
-                                                                </td>
-                                                                <td><?php echo $datos_producto['nombre_usuario'] ?>
-                                                                </td>
+                                                                <td><?php echo $datos_producto['codigo_producto'] ?></td>
+                                                                <td><?php echo $datos_producto['nombre_producto'] ?></td>
+                                                                <td><?php echo $datos_producto['nombre_marca'] ?> </td>
+                                                                <td><?php echo $datos_producto['principio_activo'] ?></td>
+                                                                <td><?php echo $datos_producto['concentracion'] ?> </td>
+                                                                <td><?php echo $datos_producto['forma_farmaceutica'] ?> </td>
+                                                                <td><?php echo $datos_producto['bioequivalente'] ?> </td>
+                                                                <td><?php echo $datos_producto['petitorio'] ?> </td>
+                                                                <td><?php echo $datos_producto['cantidad'] ?> </td>
+                                                                <td><?php echo $datos_producto['unidad_medida'] ?> </td>
+                                                                <td><?php echo $datos_producto['precio_venta'] ?></td>
+                                                                <td><?php echo $datos_producto['fecha_vencimiento'] ?> </td>
                                                             </tr>
                                                             <?php
                                                         }
@@ -142,14 +137,24 @@ include ('../../../App/controllers/inventario/listado_productos.php');
                                                 <div class="row">
                                                     <div class="col-md-3">
                                                         <div class="form-group">
+                                                            <input type="text" id="id_producto" hidden>
                                                             <label for="">Producto</label>
-                                                            <input type="text" id="producto" class="form-control">
+                                                            <input type="text" id="producto" class="form-control"
+                                                                disabled>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-5">
                                                         <div class="form-group">
                                                             <label for="">Detalle</label>
-                                                            <input type="text" id="detalle" class="form-control">
+                                                            <input type="text" id="detalle" class="form-control"
+                                                                disabled>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label for="">Precio</label>
+                                                            <input type="text" id="precio_venta" class="form-control"
+                                                                disabled>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
@@ -158,13 +163,24 @@ include ('../../../App/controllers/inventario/listado_productos.php');
                                                             <input type="text" id="cantidad" class="form-control">
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-2">
-                                                        <div class="form-group">
-                                                            <label for="">Valor Unitario</label>
-                                                            <input type="text" id="precio_unitario" class="form-control">
-                                                        </div>
-                                                    </div>
                                                 </div>
+                                                <button style="float: right" id="btn_agregar" class="btn btn-primary">Agregar
+                                                    Producto</button>
+                                                <script>
+                                                    $('#btn_agregar').click(function () {
+                                                        var id_venta = '<?php echo $contador_ventas + 1; ?>';
+                                                        var id_producto = $('#id_producto').val();
+                                                        var cantidad = $('#cantidad').val();
+
+                                                        if(id_producto==""){
+                                                            alert("Debe llenar los campos...");
+                                                        } else if(cantidad=="") {
+                                                            alert("Debe Ingresar la cantidad...")
+                                                        }
+
+                                                    });
+                                                </script>
+                                                <br>
                                             </div>
                                         </div>
                                     </div>
@@ -182,8 +198,7 @@ include ('../../../App/controllers/inventario/listado_productos.php');
                                             <th style="background-color: #e7e7e7; text-align: center">Producto</th>
                                             <th style="background-color: #e7e7e7; text-align: center">Detalle</th>
                                             <th style="background-color: #e7e7e7; text-align: center">Cantidad</th>
-                                            <th style="background-color: #e7e7e7; text-align: center">Valor Unitario
-                                            </th>
+                                            <th style="background-color: #e7e7e7; text-align: center">Valor Neto</th>
                                             <th style="background-color: #e7e7e7; text-align: center">SubTotal</th>
                                             <th style="background-color: #e7e7e7; text-align: center">Acción</th>
                                         </tr>
