@@ -92,7 +92,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex" style="display: flex; justify-content: center ">
           <a href="<?php echo $URL; ?>" style="padding-right: 10px; padding-top: 3px">
-            <img src="<?php echo $URL; ?>/public/img/logofarmaciatrans.png" class="brand-image" >
+            <img src="<?php echo $URL; ?>/public/img/logofarmaciatrans.png" class="brand-image">
           </a>
           <div class="info">
             <h6 style="text-align: center; color: gray; font-size: 15px"><?php echo $rol_sesion ?></h6>
@@ -126,35 +126,55 @@
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
-              <ul class="nav nav-treeview">
+              <ul class="nav nav-treeview" style="display: none;">
                 <li class="nav-item">
-                  <a href="<?php echo $URL; ?>/views/modulo-roles/roles/create.php" class="nav-link">
+                  <a href="#" class="nav-link">
                     <i class="nav-icon fas fa-user-nurse"></i>
-                    <p>Creación de Roles</p>
+                    <p>
+                      Roles
+                      <i class="right fas fa-angle-left"></i>
+                    </p>
                   </a>
+                  <ul class="nav nav-treeview" style="display: none;">
+                    <li class="nav-item">
+                      <a href="<?php echo $URL; ?>/views/modulo-roles/roles/create.php" class="nav-link">
+                        <i class="nav-icon fas fa-user-nurse"></i>
+                        <p>Creación de Roles</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="<?php echo $URL; ?>/views/modulo-roles/roles" class="nav-link">
+                        <i class="nav-icon fas fa-list-ul"></i>
+                        <p>Listado de Roles</p>
+                      </a>
+                    </li>
+                  </ul>
                 </li>
-
+              </ul>
+              <ul class="nav nav-treeview" style="display: none;">
                 <li class="nav-item">
-                  <a href="<?php echo $URL; ?>/views/modulo-roles/roles" class="nav-link">
-                    <i class="nav-icon fas fa-list-ul"></i>
-                    <p>Listado de Roles</p>
+                  <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-users"></i>
+                    <p>
+                      Usuarios
+                      <i class="right fas fa-angle-left"></i>
+                    </p>
                   </a>
+                  <ul class="nav nav-treeview" style="display: none;">
+                    <li class="nav-item">
+                      <a href="<?php echo $URL; ?>/views/modulo-usuarios/usuarios/create.php" class="nav-link">
+                        <i class="nav-icon fas fa-user-plus"></i>
+                        <p>Creación de usuarios</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="<?php echo $URL; ?>/views/modulo-usuarios/usuarios" class="nav-link">
+                        <i class="nav-icon fas fa-list-ul"></i>
+                        <p>Listado de usuarios</p>
+                      </a>
+                    </li>
+                  </ul>
                 </li>
-
-                <li class="nav-item">
-                  <a href="<?php echo $URL; ?>/views/modulo-usuarios/usuarios/create.php" class="nav-link">
-                    <i class="nav-icon fas fa-user"></i>
-                    <p>Creación de usuarios</p>
-                  </a>
-                </li>
-
-                <li class="nav-item">
-                  <a href="<?php echo $URL; ?>/views/modulo-usuarios/usuarios" class="nav-link">
-                    <i class="nav-icon fas fa-list-ul"></i>
-                    <p>Listado de usuarios</p>
-                  </a>
-                </li>
-
               </ul>
             </li>
 
@@ -166,39 +186,73 @@
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
-              <ul class="nav nav-treeview">
+              <ul class="nav nav-treeview" style="display: none;">
                 <li class="nav-item">
-                  <a href="<?php echo $URL; ?>/views/modulo-bodega/categorias" class="nav-link">
-                    <i class="nav-icon fas fa-list-ul"></i>
-                    <p>Listado de Categorías</p>
+                  <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-clipboard-list"></i>
+                    <p>
+                      Categorías
+                      <i class="right fas fa-angle-left"></i>
+                    </p>
                   </a>
+                  <ul class="nav nav-treeview" style="display: none;">
+                    <li class="nav-item">
+                      <a href="<?php echo $URL; ?>/views/modulo-bodega/categorias" class="nav-link">
+                        <i class="nav-icon fas fa-list-ol"></i>
+                        <p>Listado de Categorías</p>
+                      </a>
+                    </li>
+                  </ul>
                 </li>
-
+              </ul>
+              <ul class="nav nav-treeview" style="display: none;">
                 <li class="nav-item">
-                  <a href="<?php echo $URL; ?>/views/modulo-bodega/inventario/create.php" class="nav-link">
-                    <i class="nav-icon fas fa-plus"></i>
-                    <p>Creación de Productos</p>
+                  <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-syringe"></i>
+                    <p>
+                      Productos
+                      <i class="right fas fa-angle-left"></i>
+                    </p>
                   </a>
+                  <ul class="nav nav-treeview" style="display: none;">
+                    <li class="nav-item">
+                      <a href="<?php echo $URL; ?>/views/modulo-bodega/inventario/create.php" class="nav-link">
+                        <i class="nav-icon fas fa-barcode"></i>
+                        <p>Creación de Productos</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="<?php echo $URL; ?>/views/modulo-bodega/inventario" class="nav-link">
+                        <i class="nav-icon fas fa-list-ul"></i>
+                        <p>Listado de Productos</p>
+                      </a>
+                    </li>
+                  </ul>
                 </li>
+              </ul>
+              <ul class="nav nav-treeview" style="display: none;">
                 <li class="nav-item">
-                  <a href="<?php echo $URL; ?>/views/modulo-bodega/inventario" class="nav-link">
+                  <a href="#" class="nav-link">
                     <i class="nav-icon fas fa-list-ul"></i>
-                    <p>Listado de Productos</p>
+                    <p>
+                      Registros
+                      <i class="right fas fa-angle-left"></i>
+                    </p>
                   </a>
-                </li>
-
-                <li class="nav-item">
-                  <a href="<?php echo $URL; ?>/views/modulo-bodega/marcas" class="nav-link">
-                    <i class="nav-icon fas fa-list-ul"></i>
-                    <p>Marcas</p>
-                  </a>
-                </li>
-
-                <li class="nav-item">
-                  <a href="<?php echo $URL; ?>/views/modulo-bodega/laboratorios" class="nav-link">
-                    <i class="nav-icon fas fa-list-ul"></i>
-                    <p>Laboratorios</p>
-                  </a>
+                  <ul class="nav nav-treeview" style="display: none;">
+                    <li class="nav-item">
+                      <a href="<?php echo $URL; ?>/views/modulo-bodega/marcas" class="nav-link">
+                        <i class="nav-icon fas fa-plus"></i>
+                        <p>Marcas</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="<?php echo $URL; ?>/views/modulo-bodega/laboratorios" class="nav-link">
+                        <i class="nav-icon fas fa-plus"></i>
+                        <p>Laboratorios</p>
+                      </a>
+                    </li>
+                  </ul>
                 </li>
               </ul>
             </li>
@@ -211,24 +265,50 @@
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
-              <ul class="nav nav-treeview">
+              <ul class="nav nav-treeview" style="display: none;">
                 <li class="nav-item">
-                  <a href="<?php echo $URL; ?>/views/modulo-administracion/compras/create.php" class="nav-link">
-                    <i class="nav-icon fas fa-plus"></i>
-                    <p>Creación de compras</p>
+                  <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-cart-arrow-down"></i>
+                    <p>
+                      Compras
+                      <i class="right fas fa-angle-left"></i>
+                    </p>
                   </a>
+                  <ul class="nav nav-treeview" style="display: none;">
+                    <li class="nav-item">
+                      <a href="<?php echo $URL; ?>/views/modulo-administracion/compras/create.php" class="nav-link">
+                        <i class="nav-icon fas fa-plus"></i>
+                        <p>Registro de compras</p>
+                      </a>
+                    </li>
+                  </ul>
+                  <ul class="nav nav-treeview" style="display: none;">
+                    <li class="nav-item">
+                      <a href="<?php echo $URL; ?>/views/modulo-administracion/compras" class="nav-link">
+                        <i class="nav-icon fas fa-list-ul"></i>
+                        <p>Listado de compras</p>
+                      </a>
+                    </li>
+                  </ul>
                 </li>
+              </ul>
+              <ul class="nav nav-treeview" style="display: none;">
                 <li class="nav-item">
-                  <a href="<?php echo $URL; ?>/views/modulo-administracion/compras" class="nav-link">
-                    <i class="nav-icon fas fa-list-ul"></i>
-                    <p>Listado de compras</p>
+                  <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-truck"></i>
+                    <p>
+                      Proveedores
+                      <i class="right fas fa-angle-left"></i>
+                    </p>
                   </a>
-                </li>
-                <li class="nav-item">
-                  <a href="<?php echo $URL; ?>/views/modulo-administracion/proveedores" class="nav-link">
-                    <i class="nav-icon fas fa-list-ul"></i>
-                    <p>Listado de Proveedores</p>
-                  </a>
+                  <ul class="nav nav-treeview" style="display: none;">
+                    <li class="nav-item">
+                      <a href="<?php echo $URL; ?>/views/modulo-administracion/proveedores" class="nav-link">
+                        <i class="nav-icon fas fa-list-ul"></i>
+                        <p>Listado de Proveedores</p>
+                      </a>
+                    </li>
+                  </ul>
                 </li>
               </ul>
             </li>
@@ -236,19 +316,21 @@
 
             <li class="nav-item">
               <a href="#" class="nav-link active">
-                <i class="nav-icon fas fa-shopping-basket"></i>
+                <i class="nav-icon fas fa-cash-register"></i>
                 <p>
                   Ventas
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
-              <ul class="nav nav-treeview">
+              <ul class="nav nav-treeview" style="display: none;">
                 <li class="nav-item">
                   <a href="<?php echo $URL; ?>/views/modulo-ventas/ventas/create.php" class="nav-link">
-                    <i class="nav-icon fas fa-plus"></i>
+                    <i class="nav-icon fas fa-shopping-basket"></i>
                     <p>Realizar Venta</p>
                   </a>
                 </li>
+              </ul>
+              <ul class="nav nav-treeview" style="display: none;">
                 <li class="nav-item">
                   <a href="<?php echo $URL; ?>/views/modulo-ventas/ventas" class="nav-link">
                     <i class="nav-icon fas fa-list-ul"></i>
@@ -257,6 +339,7 @@
                 </li>
               </ul>
             </li>
+
 
             <li class="nav-item">
               <a href="<?php echo $URL; ?>/App/controllers/login/cerrarSesion.php" class="nav-link"
