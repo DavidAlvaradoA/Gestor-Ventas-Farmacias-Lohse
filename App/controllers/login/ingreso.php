@@ -23,7 +23,7 @@ if ($contador > 0 && (password_verify($password_user, $password_user_tabla)) ){
     $_SESSION['sesion_email'] = $email;
     header('Location:'.$URL.'/index.php');
 } else {
-    echo "Datos Incorectos, vuelva a intentarlo";
+    echo "Datos Incorrectos, vuelva a intentarlo";
     session_start();
     $_SESSION['mensaje'] = "Datos Incorrectos";
     header('Location: '.$URL.'/views/login');

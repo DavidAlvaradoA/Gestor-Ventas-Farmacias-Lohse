@@ -239,8 +239,6 @@ include ('../../../App/controllers/marcas/listado_marcas.php');
         extend: "excel",
       }, {
         extend: "pdf",
-      }, {
-        text: 'Imprimir', extend: "print",
       },//{
         //text:'Visor de Columnas',extend:"colvis"}
       ]

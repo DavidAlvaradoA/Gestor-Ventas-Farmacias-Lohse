@@ -158,7 +158,7 @@
                   }
                 ?>
                 <h3><?php echo $contador_compras;?></h3>
-                  <p>Compras Registrados</p>
+                  <p>Compras Registradas</p>
               </div>
               <a href="<?php echo $URL;?>/views/modulo-administracion/compras/create.php">
                 <div class="icon">

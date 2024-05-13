@@ -239,8 +239,6 @@ include ('../../../App/controllers/laboratorios/listado_laboratorios.php');
         extend: "excel",
       }, {
         extend: "pdf",
-      }, {
-        text: 'Imprimir', extend: "print",
       },//{
         //text:'Visor de Columnas',extend:"colvis"}
       ]
