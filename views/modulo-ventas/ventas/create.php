@@ -496,6 +496,7 @@ include ('../../../App/controllers/clientes/listado_clientes.php');
 
                                         actualizar_stock();
                                         registrar_venta();
+                                        window.location.reload()
                                         
                                         function actualizar_stock() {
                                             var i = 1;

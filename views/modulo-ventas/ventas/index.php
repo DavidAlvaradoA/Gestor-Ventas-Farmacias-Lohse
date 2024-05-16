@@ -47,6 +47,7 @@ include ('../../../App/controllers/ventas/listado_ventas.php');
                                             <th>Cantidad Total</th>
                                             <th>Total + IVA</th>
                                             <th>Fecha venta</th>
+                                            <th>Cliente</th>
                                             <th>Acciones</th>
                                         </tr>
                                     </thead>
@@ -167,6 +168,7 @@ include ('../../../App/controllers/ventas/listado_ventas.php');
                                                 <td><?php echo $cantidad_total; ?></td>
                                                 <td><span>$ </span><?php echo $datos_venta['total_pagado'] ?></td>
                                                 <td><?php echo $datos_venta['fecha_creacion'] ?></td>
+                                                <td><?php echo $datos_venta['nombre_cliente'] ?></td>
                                                 <td>
                                                     <div class="btn-group">
                                                         <a href="show.php?id=<?php echo $id_venta; ?>" type="button"

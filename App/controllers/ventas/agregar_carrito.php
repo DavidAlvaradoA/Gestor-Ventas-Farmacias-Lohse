@@ -6,8 +6,6 @@ $nro_venta = $_GET['nro_venta'];
 $id_producto = $_GET['id_producto'];
 $cantidad = $_GET['cantidad'];
 
-
-
 $sentencia = $pdo->prepare("INSERT INTO carrito
     (nro_venta, 
     id_producto,
@@ -25,6 +23,7 @@ $sentencia->bindParam('cantidad', $cantidad);
 $sentencia->bindParam('fecha_creacion', $fechaHora);
  
 if($sentencia->execute()) {
+    
     ?>
     <script>
         location.href ="<?php echo $URL;?>/views/modulo-ventas/ventas/create.php";
