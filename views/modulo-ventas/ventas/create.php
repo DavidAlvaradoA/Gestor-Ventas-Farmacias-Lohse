@@ -128,7 +128,7 @@ include ('../../../App/controllers/clientes/listado_clientes.php');
                                                                 <td><?php echo $datos_producto['petitorio'] ?> </td>
                                                                 <td><?php echo $datos_producto['cantidad'] ?> </td>
                                                                 <td><?php echo $datos_producto['unidad_medida'] ?> </td>
-                                                                <td><?php echo $datos_producto['precio_venta'] ?></td>
+                                                                <td><span>$</span><?php echo $datos_producto['precio_venta'] ?></td>
                                                                 <td><?php echo $datos_producto['fecha_vencimiento'] ?> </td>
                                                             </tr>
                                                             <?php
@@ -162,7 +162,7 @@ include ('../../../App/controllers/clientes/listado_clientes.php');
                                                     <div class="col-md-2">
                                                         <div class="form-group">
                                                             <label for="">Cantidad</label>
-                                                            <input type="text" id="cantidad" class="form-control">
+                                                            <input type="number" id="cantidad" class="form-control">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -225,7 +225,7 @@ include ('../../../App/controllers/clientes/listado_clientes.php');
                                         $nro_venta = $contador_ventas + 1;
                                         $sql_carrito = "SELECT *, CAR.cantidad as cantidad_carrito , 
                                             MAR.nombre_marca as nombre_marca, PRO.precio_venta as precio_venta,
-                                            PRO.stock_producto as stock
+                                            PRO.stock_producto as stock, PRO.id_producto as id_producto
                                             FROM carrito AS CAR 
                                             INNER JOIN inventario AS PRO 
                                             ON CAR.id_producto = PRO.id_producto 
@@ -243,18 +243,33 @@ include ('../../../App/controllers/clientes/listado_clientes.php');
                                             ?>
 
                                             <tr style="text-align: center">
-                                                <td><?php echo $contador_carrito; ?></td>
-                                                <td><?php echo $dato_carrito['nombre_producto'] . " " . $dato_carrito['nombre_marca']; ?>
-                                                </td>
-                                                <td><?php echo $dato_carrito['cantidad'] . " " . $dato_carrito['forma_farmaceutica'] . ", " .
-                                                    $dato_carrito['principio_activo']; ?></td>
+
                                                 <td>
-                                                    <?php echo $dato_carrito['cantidad_carrito']; ?>
+                                                    <?php echo $contador_carrito; ?>
+                                                    <input type="text" id="id_producto<?php echo$contador_carrito; ?>" value="<?php  echo $dato_carrito['id_producto']; ?>" hidden>
+                                                </td>
+
+                                                <td>
+                                                    <?php echo $dato_carrito['nombre_producto'] . " " . $dato_carrito['nombre_marca']; ?>
+                                                </td>
+
+                                                <td>
+                                                    <?php echo $dato_carrito['cantidad'] . " " . $dato_carrito['forma_farmaceutica'] . ", " .
+                                                    $dato_carrito['principio_activo']; ?>
+                                                </td>
+
+                                                <td>
+                                                    <span id="cantidad_producto<?php echo $contador_carrito?>"><?php echo $dato_carrito['cantidad_carrito']; ?></span>
                                                     <input type="text" value="<?php echo $dato_carrito['stock']; ?>" 
                                                         id="stock_inventario<?php echo $contador_carrito; ?>" hidden>
                                                 </td>
-                                                <td><?php echo $dato_carrito['precio_venta']; ?></td>
-                                                <td><?php
+
+                                                <td>
+                                                    <?php echo $dato_carrito['precio_venta']; ?>
+                                                </td>
+
+                                                <td><span>$</span>
+                                                    <?php
                                                 $cantidad = floatval($dato_carrito['cantidad_carrito']);
                                                 $precio_venta = floatval($dato_carrito['precio_venta']);
                                                 echo $subtotal = $cantidad * $precio_venta;
@@ -263,6 +278,7 @@ include ('../../../App/controllers/clientes/listado_clientes.php');
                                                 $PRECIO_FINAL = round($suma_subtotal + $IVA);
                                                 ?>
                                                 </td>
+
                                                 <td>
                                                     <form action="../../../App/controllers/ventas/eliminar_carrito.php"
                                                         method="post">
@@ -280,14 +296,14 @@ include ('../../../App/controllers/clientes/listado_clientes.php');
                                             <th colspan="3" style="background-color: #e7e7e7; text-align: right">Total
                                             </th>
                                             <th><?php echo $cantidad_total; ?></th>
-                                            <th><?php echo $valor_unitario; ?></th>
-                                            <th><?php echo $suma_subtotal; ?></th>
+                                            <th><span>$</span><?php echo $valor_unitario; ?></th>
+                                            <th><span>$</span><?php echo $suma_subtotal; ?></th>
                                         </tr>
                                         <tr style="text-align: center; background-color: #e7e7e7">
                                             <th colspan="3" style="text-align: right">Total + IVA(19%)</th>
                                             <th></th>
                                             <th></th>
-                                            <th><?php echo $PRECIO_FINAL; ?></th>
+                                            <th><span>$</span><?php echo $PRECIO_FINAL; ?></th>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -478,14 +494,33 @@ include ('../../../App/controllers/clientes/listado_clientes.php');
                                         var id_cliente = $('#id_cliente').val();
                                         var monto_venta = $('#monto_venta').val();
 
-                                        registrar_venta();
                                         actualizar_stock();
-
-                                        var i = 1;
-                                        var n = '<?php echo $contador_carrito; ?>';
+                                        registrar_venta();
+                                        
                                         function actualizar_stock() {
+                                            var i = 1;
+                                            var n = '<?php echo $contador_carrito; ?>';
+
                                             for (i = 1; i <= n ; i++){
-                                                var stock_inventario = '#stock_inventario'+i;
+
+                                                var a = '#stock_inventario'+i;
+                                                var stock_inventario = $(a).val();
+
+                                                var b = '#cantidad_producto'+i;
+                                                var cantidad_producto = $(b).html();
+ 
+                                                var c = '#id_producto'+i;
+                                                var id_producto = $(c).val();
+
+                                                var stock_total_venta = parseFloat(stock_inventario - cantidad_producto); 
+
+                                                var url2 = "../../../App/controllers/ventas/actualizar_stock.php";
+
+                                                $.get(url2, {
+                                                    id_producto: id_producto,
+                                                    stock_total_venta: stock_total_venta
+                                                }, function (datos) {
+                                                });
                                             }
                                         }
 
