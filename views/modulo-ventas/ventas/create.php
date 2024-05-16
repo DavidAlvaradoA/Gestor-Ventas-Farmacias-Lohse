@@ -224,8 +224,10 @@ include ('../../../App/controllers/clientes/listado_clientes.php');
                                         $PRECIO_FINAL = 0;
                                         $nro_venta = $contador_ventas + 1;
                                         $sql_carrito = "SELECT *, CAR.cantidad as cantidad_carrito , 
-                                            MAR.nombre_marca as nombre_marca, PRO.precio_venta as precio_venta
-                                            FROM carrito AS CAR INNER JOIN inventario AS PRO 
+                                            MAR.nombre_marca as nombre_marca, PRO.precio_venta as precio_venta,
+                                            PRO.stock_producto as stock
+                                            FROM carrito AS CAR 
+                                            INNER JOIN inventario AS PRO 
                                             ON CAR.id_producto = PRO.id_producto 
                                             INNER JOIN marca AS MAR 
                                             ON MAR.id_marca = PRO.id_marca
@@ -246,7 +248,11 @@ include ('../../../App/controllers/clientes/listado_clientes.php');
                                                 </td>
                                                 <td><?php echo $dato_carrito['cantidad'] . " " . $dato_carrito['forma_farmaceutica'] . ", " .
                                                     $dato_carrito['principio_activo']; ?></td>
-                                                <td><?php echo $dato_carrito['cantidad_carrito']; ?></td>
+                                                <td>
+                                                    <?php echo $dato_carrito['cantidad_carrito']; ?>
+                                                    <input type="text" value="<?php echo $dato_carrito['stock']; ?>" 
+                                                        id="stock_inventario<?php echo $contador_carrito; ?>" hidden>
+                                                </td>
                                                 <td><?php echo $dato_carrito['precio_venta']; ?></td>
                                                 <td><?php
                                                 $cantidad = floatval($dato_carrito['cantidad_carrito']);
@@ -446,9 +452,9 @@ include ('../../../App/controllers/clientes/listado_clientes.php');
                                             style="text-align: center">
                                         <script>
                                             $('#monto_efectivo').keyup(function () {
-                                                var monto_venta = $('#monto_venta').val();
+                                                var monto_venta_vuelto = $('#monto_venta').val();
                                                 var monto_efectivo = $('#monto_efectivo').val();
-                                                var vuelto = parseFloat(monto_efectivo) - parseFloat(monto_venta);
+                                                var vuelto = parseFloat(monto_efectivo) - parseFloat(monto_venta_vuelto);
                                                 $('#vuelto_venta').val(vuelto);
                                             })
                                         </script>
@@ -465,13 +471,36 @@ include ('../../../App/controllers/clientes/listado_clientes.php');
                             <div class="form-group">
                                 <button class="btn btn-primary btn-block" id="btn-registrar-venta">Registrar
                                     Venta</button>
+                                <div id="respuesta_ventas"></div>
                                 <script>
-                                        % ('#btn-registrar-venta').click(function () {
-                                            var nro_venta = '<?php echo $contador_ventas + 1; ?>';
-                                            var id_cliente = $('#id_cliente').val();
-                                            var id_cliente = $('#monto_venta').val();
+                                    $('#btn-registrar-venta').click(function () {
+                                        var nro_venta = '<?php echo $contador_ventas + 1; ?>';
+                                        var id_cliente = $('#id_cliente').val();
+                                        var monto_venta = $('#monto_venta').val();
 
-                                        })
+                                        registrar_venta();
+                                        actualizar_stock();
+
+                                        var i = 1;
+                                        var n = '<?php echo $contador_carrito; ?>';
+                                        function actualizar_stock() {
+                                            for (i = 1; i <= n ; i++){
+                                                var stock_inventario = '#stock_inventario'+i;
+                                            }
+                                        }
+
+                                        function registrar_venta() {
+                                            var url = "../../../App/controllers/ventas/registro_ventas.php";
+
+                                            $.get(url, {
+                                                nro_venta: nro_venta,
+                                                id_cliente: id_cliente,
+                                                monto_venta: monto_venta
+                                            }, function (datos) {
+                                                $('#respuesta_ventas').html(datos);
+                                            });
+                                        }            
+                                    })
                                 </script>
                             </div>
                         </div>
@@ -592,7 +621,7 @@ include ('../../../App/controllers/clientes/listado_clientes.php');
                     </div>
                     <hr>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn btn-block" >Registrar cliente</button>
+                        <button type="submit" class="btn btn-primary btn btn-block">Registrar cliente</button>
                     </div>
                 </form>
             </div>

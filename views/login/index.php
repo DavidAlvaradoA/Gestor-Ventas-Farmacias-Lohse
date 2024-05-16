@@ -41,7 +41,7 @@
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="../../public/templates/AdminLTE-3.2.0/index2.html" class="h1"><b>Gestión</b>Farmacia</a>
+      <a href="" class="h1"><b>Gestión</b><br>Farmacia Lohse</a>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Inicia Sesión para ingresar a tu Portal</p>

@@ -1,6 +1,5 @@
 <?php
 
-
 $sql_ventas = "SELECT *
                 FROM ventas";
 
