@@ -174,8 +174,8 @@ include ('../../../App/controllers/ventas/listado_ventas.php');
                                                         <a href="show.php?id_venta=<?php echo $id_venta; ?>" type="button"
                                                         class="btn btn-info btn-sm"><i class="fa fa-eye"></i> Ver
                                                         </a>
-                                                        <a href="factura.php?id_venta=<?php echo $id_venta; ?>&nro_venta=<?php echo $nro_venta; ?>" type="button"
-                                                        class="btn btn-success btn-sm"><i class="fa fa-print"></i> Imprimir
+                                                        <a href="boleta.php?id_venta=<?php echo $id_venta; ?>&nro_venta=<?php echo $nro_venta; ?>" type="button"
+                                                        class="btn btn-success btn-sm" target="_blank"><i class="fa fa-print"></i> Imprimir
                                                         </a>
                                                         <a href="delete.php?id_venta=<?php echo $id_venta; ?>&nro_venta=<?php echo $nro_venta; ?>" type="button"
                                                         class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Borrar
