@@ -1,6 +1,5 @@
 <?php
 
-
 $sql_clientes = "SELECT *
                 FROM clientes";
 

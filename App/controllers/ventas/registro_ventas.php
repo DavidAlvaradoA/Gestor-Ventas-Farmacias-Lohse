@@ -39,15 +39,14 @@ if($sentencia->execute()) {
     </script>
     <?php
 } else {
-
-    $pdo->rollBack();
-
-    session_start();
-    $_SESSION['mensaje'] = "Error al registrar Venta";
-    $_SESSION['icono'] = "error";
     ?>
     <script>
         location.href ="<?php echo $URL;?>/views/modulo-ventas/ventas/create.php";
     </script>
     <?php
+    session_start();
+    $_SESSION['mensaje'] = "Error al registrar Venta";
+    $_SESSION['icono'] = "error";
+    $pdo->rollBack();
+
 }
