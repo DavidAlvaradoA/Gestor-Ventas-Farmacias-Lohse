@@ -38,7 +38,7 @@ $pdf->setPrintFooter(false);
 $pdf->setDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 
 // set margins
-$pdf->setMargins(5, 5, 5);
+$pdf->setMargins(15, 15, 15);
 
 // set auto page breaks
 $pdf->setAutoPageBreak(true, 5);
@@ -60,8 +60,45 @@ $pdf->AddPage();
 
 // Set some content to print
 $html = '
+<table border = "0">
+    <tr>
+        <td style="width: 50px">
+        
+        </td>
+        <td style="width: 280px">
+            <b>SISTEMA DE VENTAS FARMACIA LOHSE</b> <br>
+            Zona alto Salamanca Av. Litoral #2345 <br>
+            5289767876 - 5264567876 <br>
+            Salamanca - Chile
+        </td>
+        <td></td>
+        <td style="font-size: 10px" border = "1" >
+            <b>R.U.T 96.760.570-5</b> <br>
+            <b>BOLETA ELECTRÓNICA</b> <br>
+            <b>N° 22155923 </b>
+        </td>
+    </tr>
+</table>  
+<br>
+<br>
+<br>
 <div>
-    <h1>Hola</h1>
+    <table border = "1" style="padding: 3px; font-size: 10px" >
+        <tr>
+            <td>
+            <b>CLIENTE</b>:         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                                    ELIZABETH LOHSE <br>
+            <b>DIRECCIÓN</b>:       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp; 
+                                    AV.SAN FELIPE NRO 687 <br>
+            <b>RUT</b>:             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                                    &nbsp;&nbsp;&nbsp;
+                                    20.675.878-4 <br>
+            <b>FECHA EMISIÓN</b>:   &nbsp; 18-06-2024</td>
+        </tr>
+    </table>
 </div>
 ';
 
