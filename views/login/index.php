@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Login | Gestión Farmacia</title>
+  <title>Login | Gestión Farmacia Lohse</title>
   <link rel="icon" href="../../public/img/logofarmaciatrans.png" type="image/x-icon">
 
   <!-- Google Font: Source Sans Pro -->
@@ -37,6 +37,8 @@
   }
 ?>
 
+
+
 <div class="login-box">
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
@@ -45,7 +47,6 @@
     </div>
     <div class="card-body">
       <p class="login-box-msg">Inicia Sesión para ingresar a tu Portal</p>
-
       <form action="../../App/controllers/login/ingreso.php" method="post">
         <div class="input-group mb-3">
           <input type="email" name="email" class="form-control" placeholder="Email">
@@ -79,8 +80,7 @@
   <!-- /.card -->
 </div>
 <!-- /.login-box -->
-
-
+ 
 <!-- jQuery -->
 <script src="../../public/templates/AdminLTE-3.2.0/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
