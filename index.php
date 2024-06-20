@@ -33,56 +33,206 @@ include ('App/controllers/clientes/listado_clientes.php');
 
   <!-- Main content -->
   <div class="content">
+    <?php
+    if ($rol_sesion == "ADMINISTRADOR") { ?>
+      <div class="container-fluid">
+        <br><br>
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <?php
+                $contador_usuarios = 0;
+                foreach ($datos_usuarios as $datos_usuario) {
+                  $contador_usuarios = $contador_usuarios + 1;
+                }
+                ?>
+                <h3><?php echo $contador_usuarios; ?></h3>
+                <p>Usuarios Registrados</p>
+              </div>
+              <a href="<?php echo $URL; ?>/views/modulo-usuarios/usuarios/create.php">
+                <div class="icon">
+                  <i class="fas fa-user-plus"></i>
+                </div>
+              </a>
+              <a href="<?php echo $URL; ?>/views/modulo-usuarios/usuarios" class="small-box-footer">
+                Más detalles <i class="fas fa-arrow-circle-right"></i>
+              </a>
+            </div>
+          </div>
+
+
+          <div class="col-lg-3 col-6">
+            <div class="small-box bg-info">
+              <div class="inner">
+                <?php
+                $contador_roles = 0;
+                foreach ($datos_roles as $datos_rol) {
+                  $contador_roles = $contador_roles + 1;
+                }
+                ?>
+                <h3><?php echo $contador_roles; ?></h3>
+                <p>Roles Registrados</p>
+              </div>
+              <a href="<?php echo $URL; ?>/views/modulo-roles/roles/create.php">
+                <div class="icon">
+                  <i class="fas fa-address-card"></i>
+                </div>
+              </a>
+              <a href="<?php echo $URL; ?>/views/modulo-roles/roles" class="small-box-footer">
+                Más detalles <i class="fas fa-arrow-circle-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-6">
+            <div class="small-box bg-success">
+              <div class="inner">
+                <?php
+                $contador_categorias = 0;
+                foreach ($datos_categorias as $datos_categoria) {
+                  $contador_categorias = $contador_categorias + 1;
+                }
+                ?>
+                <h3><?php echo $contador_categorias; ?></h3>
+                <p>Categorías Registradas</p>
+              </div>
+              <a href="<?php echo $URL; ?>/views/modulo-bodega/categorias">
+                <div class="icon">
+                  <i class="fas fa-tags"></i>
+                </div>
+              </a>
+              <a href="<?php echo $URL; ?>/views/modulo-bodega/categorias" class="small-box-footer">
+                Más detalles <i class="fas fa-arrow-circle-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-6">
+            <div class="small-box bg-primary">
+              <div class="inner">
+                <?php
+                $contador_productos = 0;
+                foreach ($datos_productos as $datos_producto) {
+                  $contador_productos = $contador_productos + 1;
+                }
+                ?>
+                <h3><?php echo $contador_productos; ?></h3>
+                <p>Productos Registrados</p>
+              </div>
+              <a href="<?php echo $URL; ?>/views/modulo-bodega/inventario/create.php">
+                <div class="icon">
+                  <i class="fas fa-list"></i>
+                </div>
+              </a>
+              <a href="<?php echo $URL; ?>/views/modulo-bodega/inventario" class="small-box-footer">
+                Más detalles <i class="fas fa-arrow-circle-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-6">
+            <div class="small-box bg-success">
+              <div class="inner">
+                <?php
+                $contador_clientes = 0;
+                foreach ($datos_clientes as $datos_cliente) {
+                  $contador_clientes = $contador_clientes + 1;
+                }
+                ?>
+                <h3><?php echo $contador_clientes; ?></h3>
+                <p>Clientes Registradas</p>
+              </div>
+              <a href="<?php echo $URL; ?>/views/modulo-bodega/clientes/index.php">
+                <div class="icon">
+                  <i class="fas fa-user-friends"></i>
+                </div>
+              </a>
+              <a href="<?php echo $URL; ?>/views/modulo-bodega/clientes" class="small-box-footer">
+                Más detalles <i class="fas fa-arrow-circle-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-6">
+            <div class="small-box bg-dark">
+              <div class="inner">
+                <?php
+                $contador_proveedores = 0;
+                foreach ($datos_proveedores as $datos_proveedor) {
+                  $contador_proveedores = $contador_proveedores + 1;
+                }
+                ?>
+                <h3><?php echo $contador_proveedores; ?></h3>
+                <p>Proveedores Registrados</p>
+              </div>
+              <a href="<?php echo $URL; ?>/views/modulo-administracion/proveedores/index.php">
+                <div class="icon">
+                  <i class="fas fa-car"></i>
+                </div>
+              </a>
+              <a href="<?php echo $URL; ?>/views/modulo-administracion/proveedores" class="small-box-footer">
+                Más detalles <i class="fas fa-arrow-circle-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-6">
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <?php
+                $contador_compras = 0;
+                foreach ($datos_compras as $datos_compra) {
+                  $contador_compras = $contador_compras + 1;
+                }
+                ?>
+                <h3><?php echo $contador_compras; ?></h3>
+                <p>Compras Registradas</p>
+              </div>
+              <a href="<?php echo $URL; ?>/views/modulo-administracion/compras/create.php">
+                <div class="icon">
+                  <i class="fas fa-cart-plus"></i>
+                </div>
+              </a>
+              <a href="<?php echo $URL; ?>/views/modulo-administracion/compras" class="small-box-footer">
+                Más detalles <i class="fas fa-arrow-circle-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-6">
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <?php
+                $contador_ventas = 0;
+                foreach ($datos_ventas as $datos_venta) {
+                  $contador_ventas = $contador_ventas + 1;
+                }
+                ?>
+                <h3><?php echo $contador_ventas; ?></h3>
+                <p>Ventas Registradas</p>
+              </div>
+              <a href="<?php echo $URL; ?>/views/modulo-ventas/ventas/create.php">
+                <div class="icon">
+                  <i class="fas fa-shopping-basket"></i>
+                </div>
+              </a>
+              <a href="<?php echo $URL; ?>/views/modulo-ventas/ventas" class="small-box-footer">
+                Más detalles <i class="fas fa-arrow-circle-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- /.content -->
+      </div>
+    </div>
+    <?php
+    }
+
+    if ($rol_sesion == "FARMACÉUTICO") { ?>
     <div class="container-fluid">
       <br><br>
       <div class="row">
-        <div class="col-lg-3 col-6">
-          <div class="small-box bg-warning">
-            <div class="inner">
-              <?php
-              $contador_usuarios = 0;
-              foreach ($datos_usuarios as $datos_usuario) {
-                $contador_usuarios = $contador_usuarios + 1;
-              }
-              ?>
-              <h3><?php echo $contador_usuarios; ?></h3>
-              <p>Usuarios Registrados</p>
-            </div>
-            <a href="<?php echo $URL; ?>/views/modulo-usuarios/usuarios/create.php">
-              <div class="icon">
-                <i class="fas fa-user-plus"></i>
-              </div>
-            </a>
-            <a href="<?php echo $URL; ?>/views/modulo-usuarios/usuarios" class="small-box-footer">
-              Más detalles <i class="fas fa-arrow-circle-right"></i>
-            </a>
-          </div>
-        </div>
-
-
-        <div class="col-lg-3 col-6">
-          <div class="small-box bg-info">
-            <div class="inner">
-              <?php
-              $contador_roles = 0;
-              foreach ($datos_roles as $datos_rol) {
-                $contador_roles = $contador_roles + 1;
-              }
-              ?>
-              <h3><?php echo $contador_roles; ?></h3>
-              <p>Roles Registrados</p>
-            </div>
-            <a href="<?php echo $URL; ?>/views/modulo-roles/roles/create.php">
-              <div class="icon">
-                <i class="fas fa-address-card"></i>
-              </div>
-            </a>
-            <a href="<?php echo $URL; ?>/views/modulo-roles/roles" class="small-box-footer">
-              Más detalles <i class="fas fa-arrow-circle-right"></i>
-            </a>
-          </div>
-        </div>
-
         <div class="col-lg-3 col-6">
           <div class="small-box bg-success">
             <div class="inner">
@@ -151,53 +301,6 @@ include ('App/controllers/clientes/listado_clientes.php');
             </a>
           </div>
         </div>
-
-        <div class="col-lg-3 col-6">
-          <div class="small-box bg-dark">
-            <div class="inner">
-              <?php
-              $contador_proveedores = 0;
-              foreach ($datos_proveedores as $datos_proveedor) {
-                $contador_proveedores = $contador_proveedores + 1;
-              }
-              ?>
-              <h3><?php echo $contador_proveedores; ?></h3>
-              <p>Proveedores Registrados</p>
-            </div>
-            <a href="<?php echo $URL; ?>/views/modulo-administracion/proveedores/index.php">
-              <div class="icon">
-                <i class="fas fa-car"></i>
-              </div>
-            </a>
-            <a href="<?php echo $URL; ?>/views/modulo-administracion/proveedores" class="small-box-footer">
-              Más detalles <i class="fas fa-arrow-circle-right"></i>
-            </a>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-6">
-          <div class="small-box bg-danger">
-            <div class="inner">
-              <?php
-              $contador_compras = 0;
-              foreach ($datos_compras as $datos_compra) {
-                $contador_compras = $contador_compras + 1;
-              }
-              ?>
-              <h3><?php echo $contador_compras; ?></h3>
-              <p>Compras Registradas</p>
-            </div>
-            <a href="<?php echo $URL; ?>/views/modulo-administracion/compras/create.php">
-              <div class="icon">
-                <i class="fas fa-cart-plus"></i>
-              </div>
-            </a>
-            <a href="<?php echo $URL; ?>/views/modulo-administracion/compras" class="small-box-footer">
-              Más detalles <i class="fas fa-arrow-circle-right"></i>
-            </a>
-          </div>
-        </div>
-
         <div class="col-lg-3 col-6">
           <div class="small-box bg-warning">
             <div class="inner">
@@ -221,10 +324,68 @@ include ('App/controllers/clientes/listado_clientes.php');
           </div>
         </div>
       </div>
-
+      <!-- /.content -->
     </div>
   </div>
-  <!-- /.content -->
+
+  <?php
+    }
+
+    if ($rol_sesion == "AUXILIAR") { ?>
+      <div class="container-fluid">
+        <br><br>
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <div class="small-box bg-primary">
+              <div class="inner">
+                <?php
+                $contador_productos = 0;
+                foreach ($datos_productos as $datos_producto) {
+                  $contador_productos = $contador_productos + 1;
+                }
+                ?>
+                <h3><?php echo $contador_productos; ?></h3>
+                <p>Productos Registrados</p>
+              </div>
+              <a href="<?php echo $URL; ?>/views/modulo-bodega/inventario/create.php">
+                <div class="icon">
+                  <i class="fas fa-list"></i>
+                </div>
+              </a>
+              <a href="<?php echo $URL; ?>/views/modulo-bodega/inventario" class="small-box-footer">
+                Más detalles <i class="fas fa-arrow-circle-right"></i>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-6">
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <?php
+                $contador_ventas = 0;
+                foreach ($datos_ventas as $datos_venta) {
+                  $contador_ventas = $contador_ventas + 1;
+                }
+                ?>
+                <h3><?php echo $contador_ventas; ?></h3>
+                <p>Ventas Registradas</p>
+              </div>
+              <a href="<?php echo $URL; ?>/views/modulo-ventas/ventas/create.php">
+                <div class="icon">
+                  <i class="fas fa-shopping-basket"></i>
+                </div>
+              </a>
+              <a href="<?php echo $URL; ?>/views/modulo-ventas/ventas" class="small-box-footer">
+                Más detalles <i class="fas fa-arrow-circle-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- /.content -->
+      </div>
+    </div>
+    <?php
+    }            
+    ?>
 </div>
 <!-- /.content-wrapper -->
 
