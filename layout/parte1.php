@@ -254,6 +254,12 @@
                         <p>Laboratorios</p>
                       </a>
                     </li>
+                    <li class="nav-item" style="font-size: 15px;">
+                      <a href="<?php echo $URL; ?>/views/modulo-bodega/clientes" class="nav-link">
+                        <i class="nav-icon fas fa-plus"></i>
+                        <p>Clientes</p>
+                      </a>
+                    </li>
                   </ul>
                 </li>
               </ul>

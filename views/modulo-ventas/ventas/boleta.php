@@ -197,7 +197,7 @@ $html .='
     <tr>
         <td colspan="7" style="text-align: right"> SubTotal</td>
         <td colspan="2" style="text-align: center">'.$cantidad_total.'</td>
-        <td colspan="2" style="text-align: center"></td>
+        <td colspan="2" style="text-align: center">'.'$'.''.$subtotal.'</td>
         <td colspan="2" style="text-align: center">'.'$'.''.$suma_subtotal.'</td>
     </tr>
 

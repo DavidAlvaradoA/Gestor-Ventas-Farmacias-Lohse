@@ -33,7 +33,7 @@ if($sentencia->execute()) {
     $_SESSION['icono'] = "success";
     ?>
     <script>
-        location.href ="<?php echo $URL;?>/views/modulo-ventas/ventas/create.php";
+        location.href ="<?php echo $URL;?>/views/modulo-bodega/clientes/index.php";
     </script>
     <?php
 } else {
@@ -44,7 +44,7 @@ if($sentencia->execute()) {
     $_SESSION['icono'] = "error";
     ?>
     <script>
-        location.href ="<?php echo $URL;?>/views/modulo-ventas/ventas/create.php";
+        location.href ="<?php echo $URL;?>/views/modulo-bodega/clientes/index.php";
     </script>
     <?php
 }
