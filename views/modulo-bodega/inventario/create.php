@@ -255,23 +255,12 @@ include ('../../../App/controllers/laboratorios/listado_laboratorios.php');
                               <label for="">Concentración:</label>
                               <input type="text" name="concentracion" class="form-control" placeholder="Concentración">
                             </div>
-                            <script>
-                              var concentracion = document.querySelector("#concentracion")
-                              $('#concentracion').val(concentracion);
-                            </script>
                           </div>
                           <div class="col-md-3">
                             <div class="form-group">
                               <label for="">Forma Farmacéutica:</label>
-                              <select name="forma_farmaceutica" class="form-control">
-                                <option value="Comprimido">Comprimido</option>
-                                <option value="Jarabe">Jarabe</option>
-                              </select>
+                              <input type="text" name="forma_farmaceutica" class="form-control" placeholder="Forma Farmacéutica">
                             </div>
-                            <script>
-                              var forma_farmaceutica = document.querySelector("#forma_farmaceutica")
-                              $('#forma_farmaceutica').val(forma_farmaceutica);
-                            </script>
                           </div>
                           <div class="col-md-3">
                             <div class="form-group">

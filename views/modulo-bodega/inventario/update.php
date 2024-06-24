@@ -51,7 +51,7 @@ include ('../../../App/controllers/laboratorios/listado_laboratorios.php');
                             <div class="form-group">
                               <label for="">Código:</label>
                               <input type="text" class="form-control" placeholder="Ingrese Código del producto"
-                                value="<?php echo $codigo ?>" disabled>
+                                value="<?php echo $codigo ?>">
                               <input name="codigo_producto" type="text" value="<?php echo $codigo ?>" hidden>
                             </div>
                           </div>
@@ -136,30 +136,16 @@ include ('../../../App/controllers/laboratorios/listado_laboratorios.php');
                           <div class="col-md-3">
                             <div class="form-group">
                               <label for="">Concentración:</label>
-                              <select name="concentracion" class="form-control">
-                                <option value="Mg">Mg</option>
-                                <option value="Gr">Gr</option>
-                                <option value="Ml">Ml</option>
-                              </select>
+                              <input value="<?php echo $concentracion; ?>" type="text" 
+                                name="concentracion" class="form-control" placeholder="Concentración">
                             </div>
-                            <script>
-                              var concentracion = document.querySelector("#concentracion")
-                              $('#concentracion').val(concentracion);
-                            </script>
                           </div>
                           <div class="col-md-3">
                             <div class="form-group">
                               <label for="">Forma Farmacéutica:</label>
-                              <select name="forma_farmaceutica" class="form-control"
-                                value="<?php echo $forma_farmaceutica; ?>">
-                                <option value="Forma 1">Forma 1</option>
-                                <option value="Forma 2">Forma 2</option>
-                              </select>
+                              <input type="text" value="<?php echo $forma_farmaceutica; ?>" 
+                                name="forma_farmaceutica" class="form-control" placeholder="Forma Farmacéutica">
                             </div>
-                            <script>
-                              var forma_farmaceutica = document.querySelector("#forma_farmaceutica")
-                              $('#forma_farmaceutica').val(forma_farmaceutica);
-                            </script>
                           </div>
                           <div class="col-md-3">
                             <div class="form-group">
