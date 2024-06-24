@@ -50,27 +50,14 @@ include ('../../../App/controllers/laboratorios/listado_laboratorios.php');
                             <div class="form-group">
                               <label for="">Código:</label>
                               <?php
-                              function ceros($numero)
-                              {
-                                $len = 0;
-                                $cantidad_ceros = 5;
-                                $aux = $numero;
-                                $pos = strlen($numero);
-                                $len = $cantidad_ceros - $pos;
-                                for ($i = 0; $i < $len; $i++) {
-                                  $aux = "0" . $aux;
-                                }
-                                return $aux;
-                              }
                               $contador_id_productos = 1;
                               foreach ($datos_productos as $datos_producto) {
                                 $contador_id_productos = $contador_id_productos + 1;
                               }
                               ?>
-                              <input type="text" class="form-control" placeholder="Ingrese Código del producto"
-                                value="<?php echo "P-" . ceros($contador_id_productos) ?>" disabled>
+                              <input type="text" class="form-control" placeholder="Ingrese Código del producto">
                               <input name="codigo_producto" type="text"
-                                value="<?php echo "P-" . ceros($contador_id_productos) ?>" hidden>
+                                value= "<?php echo $contador_id_productos ?>" hidden>
                             </div>
                           </div>
                           <div class="col-md-4">
@@ -266,11 +253,7 @@ include ('../../../App/controllers/laboratorios/listado_laboratorios.php');
                           <div class="col-md-3">
                             <div class="form-group">
                               <label for="">Concentración:</label>
-                              <select name="concentracion" class="form-control">
-                                <option value="Mg">Mg</option>
-                                <option value="Gr">Gr</option>
-                                <option value="Ml">Ml</option>
-                              </select>
+                              <input type="text" name="concentracion" class="form-control" placeholder="Concentración">
                             </div>
                             <script>
                               var concentracion = document.querySelector("#concentracion")
