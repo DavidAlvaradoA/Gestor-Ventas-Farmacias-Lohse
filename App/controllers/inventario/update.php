@@ -38,7 +38,8 @@ if($_FILES['imagen_producto']['name'] != null){
 }
 
     $sentencia = $pdo->prepare("UPDATE inventario 
-    SET nombre_producto=:nombre_producto,
+    SET codigo_producto=:codigo_producto,
+        nombre_producto=:nombre_producto,
         principio_activo=:principio_activo,
         cantidad=:cantidad,
         concentracion=:concentracion,
@@ -62,6 +63,7 @@ if($_FILES['imagen_producto']['name'] != null){
         fecha_actualizacion=:fecha_actualizacion
     WHERE id_producto= :id_producto");
     
+    $sentencia->bindParam('codigo_producto', $codigo);
     $sentencia->bindParam('nombre_producto', $nombre);
     $sentencia->bindParam('principio_activo', $principio_activo);
     $sentencia->bindParam('cantidad', $cantidad);

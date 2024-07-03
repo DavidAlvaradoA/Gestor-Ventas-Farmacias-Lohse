@@ -49,15 +49,7 @@ include ('../../../App/controllers/laboratorios/listado_laboratorios.php');
                           <div class="col-md-4">
                             <div class="form-group">
                               <label for="">Código:</label>
-                              <?php
-                              $contador_id_productos = 1;
-                              foreach ($datos_productos as $datos_producto) {
-                                $contador_id_productos = $contador_id_productos + 1;
-                              }
-                              ?>
-                              <input type="text" class="form-control" placeholder="Ingrese Código del producto">
-                              <input name="codigo_producto" type="text"
-                                value= "<?php echo $contador_id_productos ?>" hidden>
+                              <input type="text" name="codigo_producto" class="form-control" placeholder="Ingrese Código del producto">
                             </div>
                           </div>
                           <div class="col-md-4">
