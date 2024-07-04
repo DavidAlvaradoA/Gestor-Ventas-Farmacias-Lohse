@@ -225,6 +225,111 @@ include ('App/controllers/clientes/listado_clientes.php');
         </div>
         <!-- /.content -->
       </div>
+      <div class="row">
+        <div class="col-md-6">
+           <div>
+            <canvas id="myChart"></canvas>
+           </div>
+           <?php
+              $enero = 0; $febrero = 0; $marzo = 0; $abril = 0; $mayo = 0; $junio = 0; $julio = 0; 
+              $agosto = 0; $septiembre = 0; $octubre = 0; $noviembre = 0; $diciembre = 0; 
+              foreach ($datos_ventas as $datos_venta) {
+                $fecha = $datos_venta['fecha_venta'];
+                $fecha = strtoTime($fecha);
+                $mes = date("m", $fecha);
+                if($mes == "01") $enero = $enero + 1;
+                if($mes == "02") $febrero = $febrero + 1;
+                if($mes == "03") $marzo = $marzo + 1;
+                if($mes == "04") $abril = $abril + 1;
+                if($mes == "05") $mayo = $mayo + 1;
+                if($mes == "06") $junio = $junio + 1;
+                if($mes == "07") $julio = $julio + 1;
+                if($mes == "08") $agosto = $agosto + 1;
+                if($mes == "09") $septiembre = $septiembre + 1;
+                if($mes == "10") $octubre = $octubre + 1;
+                if($mes == "11") $noviembre = $noviembre + 1;
+                if($mes == "12") $diciembre = $diciembre + 1;
+              }
+              $ventas_meses = $enero.",".$febrero.",".$marzo.",".$abril.",".$mayo.",".$junio.",".$julio.",".$agosto.",".$septiembre.",".$octubre.",".$noviembre.",".$diciembre;
+            ?>
+          <script>
+            var meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio',
+                        'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+            var datos = [<?php echo $ventas_meses?>];
+            const ctx = document.getElementById('myChart');
+            new Chart(ctx, {
+              type: 'line',
+              data: { 
+                labels: meses,
+                datasets: [{
+                  label: 'Ventas registradas',
+                  data: datos,
+                  borderWidth: 1
+                }]
+              },
+              options: {
+                scales: {
+                  y: {
+                    beginAtZero: true
+                  }
+                }
+              }
+            });
+          </script>
+        </div>
+        <div class="col-md-6">
+           <div>
+            <canvas id="myChart2"></canvas>
+           </div>
+           <?php
+              $enero = 0; $febrero = 0; $marzo = 0; $abril = 0; $mayo = 0; $junio = 0; $julio = 0; 
+              $agosto = 0; $septiembre = 0; $octubre = 0; $noviembre = 0; $diciembre = 0; 
+              foreach ($datos_productos as $datos_producto) {
+                $fecha_pro = $datos_producto['fecha_ingreso'];
+                $fecha_pro = strtoTime($fecha_pro);
+                $mes = date("m", $fecha_pro);
+                if($mes == "01") $enero = $enero + 1;
+                if($mes == "02") $febrero = $febrero + 1;
+                if($mes == "03") $marzo = $marzo + 1;
+                if($mes == "04") $abril = $abril + 1;
+                if($mes == "05") $mayo = $mayo + 1;
+                if($mes == "06") $junio = $junio + 1;
+                if($mes == "07") $julio = $julio + 1;
+                if($mes == "08") $agosto = $agosto + 1;
+                if($mes == "09") $septiembre = $septiembre + 1;
+                if($mes == "10") $octubre = $octubre + 1;
+                if($mes == "11") $noviembre = $noviembre + 1;
+                if($mes == "12") $diciembre = $diciembre + 1;
+              }
+              $productos = $enero.",".$febrero.",".$marzo.",".$abril.",".$mayo.",".$junio.",".$julio.",".$agosto.",".$septiembre.",".$octubre.",".$noviembre.",".$diciembre;
+            ?>
+          <script>
+            var meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio',
+                        'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+            var datos = [<?php echo $productos?>];
+            const ctx2 = document.getElementById('myChart2');
+            new Chart(ctx2, {
+              type: 'bar',
+              data: { 
+                labels: meses,
+                datasets: [{
+                  label: 'Productos registrados',
+                  data: datos,
+                  borderWidth: 1
+                }]
+              },
+              options: {
+                scales: {
+                  y: {
+                    beginAtZero: true
+                  }
+                }
+              }
+            });
+          </script>
+        </div>
+      </div>
+
     </div>
     <?php
     }
@@ -326,6 +431,110 @@ include ('App/controllers/clientes/listado_clientes.php');
       </div>
       <!-- /.content -->
     </div>
+    <div class="row">
+        <div class="col-md-6">
+           <div>
+            <canvas id="myChart"></canvas>
+           </div>
+           <?php
+              $enero = 0; $febrero = 0; $marzo = 0; $abril = 0; $mayo = 0; $junio = 0; $julio = 0; 
+              $agosto = 0; $septiembre = 0; $octubre = 0; $noviembre = 0; $diciembre = 0; 
+              foreach ($datos_ventas as $datos_venta) {
+                $fecha = $datos_venta['fecha_venta'];
+                $fecha = strtoTime($fecha);
+                $mes = date("m", $fecha);
+                if($mes == "01") $enero = $enero + 1;
+                if($mes == "02") $febrero = $febrero + 1;
+                if($mes == "03") $marzo = $marzo + 1;
+                if($mes == "04") $abril = $abril + 1;
+                if($mes == "05") $mayo = $mayo + 1;
+                if($mes == "06") $junio = $junio + 1;
+                if($mes == "07") $julio = $julio + 1;
+                if($mes == "08") $agosto = $agosto + 1;
+                if($mes == "09") $septiembre = $septiembre + 1;
+                if($mes == "10") $octubre = $octubre + 1;
+                if($mes == "11") $noviembre = $noviembre + 1;
+                if($mes == "12") $diciembre = $diciembre + 1;
+              }
+              $ventas_meses = $enero.",".$febrero.",".$marzo.",".$abril.",".$mayo.",".$junio.",".$julio.",".$agosto.",".$septiembre.",".$octubre.",".$noviembre.",".$diciembre;
+            ?>
+          <script>
+            var meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio',
+                        'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+            var datos = [<?php echo $ventas_meses?>];
+            const ctx3 = document.getElementById('myChart');
+            new Chart(ctx3, {
+              type: 'line',
+              data: { 
+                labels: meses,
+                datasets: [{
+                  label: 'Ventas registradas',
+                  data: datos,
+                  borderWidth: 1
+                }]
+              },
+              options: {
+                scales: {
+                  y: {
+                    beginAtZero: true
+                  }
+                }
+              }
+            });
+          </script>
+        </div>
+        <div class="col-md-6">
+           <div>
+            <canvas id="myChart2"></canvas>
+           </div>
+           <?php
+              $enero = 0; $febrero = 0; $marzo = 0; $abril = 0; $mayo = 0; $junio = 0; $julio = 0; 
+              $agosto = 0; $septiembre = 0; $octubre = 0; $noviembre = 0; $diciembre = 0; 
+              foreach ($datos_productos as $datos_producto) {
+                $fecha_pro = $datos_producto['fecha_ingreso'];
+                $fecha_pro = strtoTime($fecha_pro);
+                $mes = date("m", $fecha_pro);
+                if($mes == "01") $enero = $enero + 1;
+                if($mes == "02") $febrero = $febrero + 1;
+                if($mes == "03") $marzo = $marzo + 1;
+                if($mes == "04") $abril = $abril + 1;
+                if($mes == "05") $mayo = $mayo + 1;
+                if($mes == "06") $junio = $junio + 1;
+                if($mes == "07") $julio = $julio + 1;
+                if($mes == "08") $agosto = $agosto + 1;
+                if($mes == "09") $septiembre = $septiembre + 1;
+                if($mes == "10") $octubre = $octubre + 1;
+                if($mes == "11") $noviembre = $noviembre + 1;
+                if($mes == "12") $diciembre = $diciembre + 1;
+              }
+              $productos = $enero.",".$febrero.",".$marzo.",".$abril.",".$mayo.",".$junio.",".$julio.",".$agosto.",".$septiembre.",".$octubre.",".$noviembre.",".$diciembre;
+            ?>
+          <script>
+            var meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio',
+                        'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+            var datos = [<?php echo $productos?>];
+            const ctx4 = document.getElementById('myChart2');
+            new Chart(ctx4, {
+              type: 'bar',
+              data: { 
+                labels: meses,
+                datasets: [{
+                  label: 'Productos registrados',
+                  data: datos,
+                  borderWidth: 1
+                }]
+              },
+              options: {
+                scales: {
+                  y: {
+                    beginAtZero: true
+                  }
+                }
+              }
+            });
+          </script>
+        </div>
+      </div>
   </div>
 
   <?php
@@ -382,6 +591,110 @@ include ('App/controllers/clientes/listado_clientes.php');
         </div>
         <!-- /.content -->
       </div>
+      <div class="row">
+        <div class="col-md-6">
+           <div>
+            <canvas id="myChart"></canvas>
+           </div>
+           <?php
+              $enero = 0; $febrero = 0; $marzo = 0; $abril = 0; $mayo = 0; $junio = 0; $julio = 0; 
+              $agosto = 0; $septiembre = 0; $octubre = 0; $noviembre = 0; $diciembre = 0; 
+              foreach ($datos_ventas as $datos_venta) {
+                $fecha = $datos_venta['fecha_venta'];
+                $fecha = strtoTime($fecha);
+                $mes = date("m", $fecha);
+                if($mes == "01") $enero = $enero + 1;
+                if($mes == "02") $febrero = $febrero + 1;
+                if($mes == "03") $marzo = $marzo + 1;
+                if($mes == "04") $abril = $abril + 1;
+                if($mes == "05") $mayo = $mayo + 1;
+                if($mes == "06") $junio = $junio + 1;
+                if($mes == "07") $julio = $julio + 1;
+                if($mes == "08") $agosto = $agosto + 1;
+                if($mes == "09") $septiembre = $septiembre + 1;
+                if($mes == "10") $octubre = $octubre + 1;
+                if($mes == "11") $noviembre = $noviembre + 1;
+                if($mes == "12") $diciembre = $diciembre + 1;
+              }
+              $ventas_meses = $enero.",".$febrero.",".$marzo.",".$abril.",".$mayo.",".$junio.",".$julio.",".$agosto.",".$septiembre.",".$octubre.",".$noviembre.",".$diciembre;
+            ?>
+          <script>
+            var meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio',
+                        'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+            var datos = [<?php echo $ventas_meses?>];
+            const ctx5 = document.getElementById('myChart');
+            new Chart(ctx5, {
+              type: 'line',
+              data: { 
+                labels: meses,
+                datasets: [{
+                  label: 'Ventas registradas',
+                  data: datos,
+                  borderWidth: 1
+                }]
+              },
+              options: {
+                scales: {
+                  y: {
+                    beginAtZero: true
+                  }
+                }
+              }
+            });
+          </script>
+        </div>
+        <div class="col-md-6">
+           <div>
+            <canvas id="myChart2"></canvas>
+           </div>
+           <?php
+              $enero = 0; $febrero = 0; $marzo = 0; $abril = 0; $mayo = 0; $junio = 0; $julio = 0; 
+              $agosto = 0; $septiembre = 0; $octubre = 0; $noviembre = 0; $diciembre = 0; 
+              foreach ($datos_productos as $datos_producto) {
+                $fecha_pro = $datos_producto['fecha_ingreso'];
+                $fecha_pro = strtoTime($fecha_pro);
+                $mes = date("m", $fecha_pro);
+                if($mes == "01") $enero = $enero + 1;
+                if($mes == "02") $febrero = $febrero + 1;
+                if($mes == "03") $marzo = $marzo + 1;
+                if($mes == "04") $abril = $abril + 1;
+                if($mes == "05") $mayo = $mayo + 1;
+                if($mes == "06") $junio = $junio + 1;
+                if($mes == "07") $julio = $julio + 1;
+                if($mes == "08") $agosto = $agosto + 1;
+                if($mes == "09") $septiembre = $septiembre + 1;
+                if($mes == "10") $octubre = $octubre + 1;
+                if($mes == "11") $noviembre = $noviembre + 1;
+                if($mes == "12") $diciembre = $diciembre + 1;
+              }
+              $productos = $enero.",".$febrero.",".$marzo.",".$abril.",".$mayo.",".$junio.",".$julio.",".$agosto.",".$septiembre.",".$octubre.",".$noviembre.",".$diciembre;
+            ?>
+          <script>
+            var meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio',
+                        'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+            var datos = [<?php echo $productos?>];
+            const ctx6 = document.getElementById('myChart2');
+            new Chart(ctx6, {
+              type: 'bar',
+              data: { 
+                labels: meses,
+                datasets: [{
+                  label: 'Productos registrados',
+                  data: datos,
+                  borderWidth: 1
+                }]
+              },
+              options: {
+                scales: {
+                  y: {
+                    beginAtZero: true
+                  }
+                }
+              }
+            });
+          </script>
+        </div>
+      </div>
     </div>
     <?php
     }            
@@ -392,12 +705,18 @@ include ('App/controllers/clientes/listado_clientes.php');
 
 
 
+
+
 <!-- Control Sidebar -->
 <aside class="control-sidebar control-sidebar-dark">
   <!-- Control sidebar content goes here -->
   <div class="p-3">
+    <div style="text-align: center;">
     <h5>Ventas</h5>
+    <hr>
     <p>Ventas realizadas</p>
+      <?php echo $contador_ventas?>
+    </div>
   </div>
 </aside>
 <!-- /.control-sidebar -->

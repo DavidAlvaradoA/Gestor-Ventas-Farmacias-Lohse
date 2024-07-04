@@ -167,7 +167,7 @@ include ('../../../App/controllers/ventas/listado_ventas.php');
                                                 </td>
                                                 <td><?php echo $cantidad_total; ?></td>
                                                 <td><span>$ </span><?php echo $datos_venta['total_pagado'] ?></td>
-                                                <td><?php echo $datos_venta['fecha_creacion'] ?></td>
+                                                <td><?php echo $datos_venta['fecha_venta'] ?></td>
                                                 <td><?php echo $datos_venta['nombre_cliente'] ?></td>
                                                 <td>
                                                     <div class="btn-group">

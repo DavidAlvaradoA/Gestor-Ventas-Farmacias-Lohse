@@ -493,7 +493,7 @@ include ('../../../App/controllers/clientes/listado_clientes.php');
                                         var nro_venta = '<?php echo $contador_ventas + 1; ?>';
                                         var id_cliente = $('#id_cliente').val();
                                         var monto_venta = $('#monto_venta').val();
-
+                                        
                                         actualizar_stock();
                                         registrar_venta();
                                         
